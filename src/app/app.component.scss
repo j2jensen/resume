@@ -1,0 +1,18 @@
+.group-title{
+  &::after{content: ": "}
+}
+.tag{
+  font-size: 12px;
+  color: hsl(205,47%,42%);
+  background-color: hsl(205,46%,92%);
+  line-height: 1;
+  margin: 2px 2px 2px 0;
+  padding: 0.4em 0.5em;
+  white-space: nowrap;
+  text-decoration: none;
+  text-align: center;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 3px;
+  border-color: transparent;
+}
