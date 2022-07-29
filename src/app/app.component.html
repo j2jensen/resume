@@ -1,35 +1,60 @@
-<div class="header">
-  <h1>James K. Jensen</h1>
-</div>
-<div class="technologies">
-  <h2>Technologies</h2>
-  <ul>
-    <li *ngFor="let group of profile.technologyGroups">
-      <span class="group-title">{{group.title}}</span>
-      <span *ngFor="let tech of group.technologies" class="tag">
-        {{tech.name}}
-      </span>
-    </li>
-  </ul>
-</div>
-<div class="experience">
-</div>
-<div class="languages">
-</div>
-<div class="awards">
 
+<hc-tile>
+  <div hcTileHeader type="center">
+    <h1>James K. Jensen</h1>
+  </div>
+</hc-tile>
+<hc-tile>
+<div class="container">
+  <div class="scroll-nav-container">
+    <hc-scroll-nav>
+      <ul>
+        <li hcScrollLink="technologies">Technologies</li>
+        <li hcScrollLink="experience">Experience</li>
+        <li hcScrollLink="languages">Languages</li>
+        <li hcScrollLink="awards">Awards</li>
+        <li hcScrollLink="community">Community</li>
+        <li hcScrollLink="education">Education</li>
+        <li hcScrollLink="training">Training</li>
+      </ul>
+    </hc-scroll-nav>
+    <hc-scroll-nav-content>
+      <div id="technologies">
+        <h2>Technologies</h2>
+        <ul>
+          <li *ngFor="let group of profile.technologyGroups">
+            <fieldset>
+              <legend>{{group.title}}</legend>
+              <hc-chip *ngFor="let tech of group.technologies">
+                {{tech.name}}
+              </hc-chip>
+            </fieldset>
+          </li>
+        </ul>
+      </div>
+      <div id="experience">
+        <h2>Experience</h2>
+      </div>
+      <div id="languages">
+        <h2>Languages</h2>
+      </div>
+      <div id="awards">
+        <h2>Awards</h2>
+        <a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/users/120955/striplingwarrior"><img src="https://stackoverflow.com/users/flair/120955.png?theme=clean" width="208" height="58" alt="profile for StriplingWarrior at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for StriplingWarrior at Stack Overflow, Q&amp;A for professional and enthusiast programmers"></a>
+        <a target="_blank" rel="noopener noreferrer" href="https://www.codementor.io/@j2jensen?refer=badge"><img src="https://www.codementor.io/m-badges/j2jensen/im-a-cm-g.svg" alt="Codementor badge"></a>
+      </div>
+      <div id="community">
+        <h2>Community</h2>
+      </div>
+      <div id="education">
+        <h2>Education</h2>
+      </div>
+      <div id="training">
+        <h2>Training</h2>
+      </div>
+    </hc-scroll-nav-content>
+
+  </div>
 </div>
-<div class="community">
 
-</div>
-
-<div class="education">
-
-</div>
-
-<div class="training">
-
-</div>
-<div class="footer">
-
-</div>
+</hc-tile>
