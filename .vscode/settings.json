@@ -1,3 +1,6 @@
 {
-  "yaml.customTags": ["!script"]
+  "yaml.customTags": [
+    "!script"
+  ],
+  "typescript.tsdk": "node_modules\\typescript\\lib"
 }
