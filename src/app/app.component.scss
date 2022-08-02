@@ -1,3 +1,13 @@
+.container {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+
+  >hc-tile {
+    max-width: 1280px;
+  }
+}
+
 fieldset {
   margin: 5px;
   border: 1px solid lightgray;
@@ -45,7 +55,7 @@ fieldset {
     >.details {
       flex: 1;
 
-      p{
+      p {
         line-height: 1.2;
       }
 
