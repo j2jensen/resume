@@ -11,10 +11,12 @@
 fieldset {
   margin: 5px;
   border: 1px solid lightgray;
+  border-radius: 4px;
 
   legend {
     font-size: 110%;
     padding: 3px 5px;
+    margin: 0px 4px;
   }
 }
 
@@ -46,17 +48,19 @@ fieldset {
     flex-flow: row;
     gap: 10px;
 
-    .time-ranges {
+    >.time-ranges {
       display: flex;
       flex-flow: column;
       gap: 10px;
+      flex: 1;
     }
 
     >.details {
-      flex: 1;
+      flex: 3;
 
       p {
         line-height: 1.2;
+        margin-bottom: 0.8em;
       }
 
       ul {
