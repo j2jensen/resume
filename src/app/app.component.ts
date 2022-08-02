@@ -10,10 +10,11 @@ export class AppComponent {
   profile = {
     technologyGroups: [
       {
-        title: ".NET Framework and .NET 6",
+        title: ".NET",
         technologies: [
           { name: "ASP.NET Core" },
           { name: "Web API" },
+          { name: ".NET 6" },
           { name: "C# 10" },
         ]
       },
@@ -36,7 +37,9 @@ export class AppComponent {
           { name: "NUnit" },
           { name: "XUnit" },
           { name: "MSTest" },
+          { name: "Moq" },
           { name: "Jasmine" },
+          { name: "AutoFixture" },
           { name: "Specflow" },
         ]
       },
@@ -46,6 +49,7 @@ export class AppComponent {
           { name: "Azure DevOps" },
           { name: "Application Insights" },
           { name: "Microsoft Azure" },
+          { name: "Github Workflows" },
         ]
       },
       {
