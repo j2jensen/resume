@@ -40,6 +40,35 @@ export class AppComponent {
           { name: "Specflow" },
         ]
       },
+      {
+        title: "Dev Ops",
+        technologies: [
+          { name: "Azure DevOps" },
+          { name: "Application Insights" },
+          { name: "Microsoft Azure" },
+        ]
+      },
+      {
+        title: "Databases",
+        technologies: [
+          { name: "SQL Server" },
+          { name: "Snowflake" },
+          { name: "Databricks" },
+          { name: "RavenDB" },
+        ]
+      }, {
+        title: "Object-Relational Mappers",
+        technologies: [
+          { name: "Entity Framework" },
+          { name: "Dapper" },
+        ]
+      }, {
+        title: "Miscellaneous",
+        technologies: [
+          { name: "Java" },
+          { name: "Python" },
+        ]
+      },
     ]
   }
 }

@@ -1,24 +1,11 @@
-
-<hc-tile>
-  <div hcTileHeader type="center">
-    <h1>James K. Jensen</h1>
-  </div>
-</hc-tile>
-<hc-tile>
 <div class="container">
-  <div class="scroll-nav-container">
-    <hc-scroll-nav>
-      <ul>
-        <li hcScrollLink="technologies">Technologies</li>
-        <li hcScrollLink="experience">Experience</li>
-        <li hcScrollLink="languages">Languages</li>
-        <li hcScrollLink="awards">Awards</li>
-        <li hcScrollLink="community">Community</li>
-        <li hcScrollLink="education">Education</li>
-        <li hcScrollLink="training">Training</li>
-      </ul>
-    </hc-scroll-nav>
-    <hc-scroll-nav-content>
+  <hc-tile>
+    <div hcTileHeader type="center">
+      <h1>James K. Jensen</h1>
+    </div>
+  </hc-tile>
+  <hc-tile class="body">
+    <div class="scroll-nav-container">
       <div id="technologies">
         <h2>Technologies</h2>
         <ul>
@@ -34,17 +21,62 @@
       </div>
       <div id="experience">
         <h2>Experience</h2>
+        <div class="company">
+          <div class="time-ranges">
+            <div class="time-range">
+              <h3>Health Catalyst</h3>
+              <span>2016 to Present</span>
+            </div>
+            <div class="position">
+              <div class="time-ranges">
+                <div class="time-range">
+                  <h4 class="title">Director, Software Engineering</h4>
+                  <span>July 2019 to July 2021</span>
+                </div>
+                <div class="time-range">
+                  <h4 class="title">Software Engineering Manager</h4>
+                  <span>February 2018 to June 2019</span>
+                </div>
+                <div class="time-range">
+                  <h4 class="title">Senior Software Engineer</h4>
+                  <span>March 2016 to February 2018</span>
+                </div>
+              </div>
+              <div class="details">
+                <h3>Pop Analyzer Product</h3>
+                <p>Web application allowing users to define criteria for items (e.g. Patients), explore the data
+                  associated with items matching those criteria, and publish the results into the ETL metadata, for
+                  consumption from the Enterprise Data Warehouse. Includes crucial integrations for the Care Management
+                  and Pop Insights applications. Also the company's first application to support querying the Snowflake
+                  warehouse, and serves as the front-end for the Touchstone Match application.</p>
+                <h4>Responsibilities</h4>
+                <ul>
+                  <li>Formed a team and led the creation of one of the company's most successful and highly rated
+                    applications.</li>
+                  <li><em>Member</em>, Cybersecurity and Compliance Steering Committee</li>
+                  <li><em>Business Unit Representative</em>, Technology Architecture Council</li>
+                  <li><em>Member</em>, Open Space Committee</li>
+                  <li><em>Subject-Matter Expert</em>, ASO Team Code Review Competency Framework</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div id="languages">
         <h2>Languages</h2>
       </div>
       <div id="awards">
         <h2>Awards</h2>
-        <a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/users/120955/striplingwarrior"><img src="https://stackoverflow.com/users/flair/120955.png?theme=clean" width="208" height="58" alt="profile for StriplingWarrior at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for StriplingWarrior at Stack Overflow, Q&amp;A for professional and enthusiast programmers"></a>
-        <a target="_blank" rel="noopener noreferrer" href="https://www.codementor.io/@j2jensen?refer=badge"><img src="https://www.codementor.io/m-badges/j2jensen/im-a-cm-g.svg" alt="Codementor badge"></a>
       </div>
       <div id="community">
         <h2>Community</h2>
+        <a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/users/120955/striplingwarrior"><img
+            src="https://stackoverflow.com/users/flair/120955.png?theme=clean" width="208" height="58"
+            alt="profile for StriplingWarrior at Stack Overflow, Q&amp;A for professional and enthusiast programmers"
+            title="profile for StriplingWarrior at Stack Overflow, Q&amp;A for professional and enthusiast programmers"></a>
+        <a target="_blank" rel="noopener noreferrer" href="https://www.codementor.io/@j2jensen?refer=badge"><img
+            src="https://www.codementor.io/m-badges/j2jensen/im-a-cm-g.svg" alt="Codementor badge"></a>
       </div>
       <div id="education">
         <h2>Education</h2>
@@ -52,9 +84,7 @@
       <div id="training">
         <h2>Training</h2>
       </div>
-    </hc-scroll-nav-content>
+    </div>
 
-  </div>
+  </hc-tile>
 </div>
-
-</hc-tile>
