@@ -1,3 +1,7 @@
+h2 {
+  margin: 12px;
+}
+
 .container {
   display: flex;
   flex-flow: column;
@@ -25,10 +29,29 @@ fieldset {
     display: flex;
     flex-flow: row wrap;
     align-content: space-around;
+
+    >li {
+      flex: 1 1 auto;
+
+      >fieldset {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+      }
+    }
   }
 }
 
 .company {
+  display: flex;
+  flex-flow: row;
+  gap: 10px;
+
+  border-left: 1px solid lightgrey;
+  border-radius: 14px;
+  border-right: none;
+  margin-bottom: -1px;
+  padding: 10px;
 
   >.time-ranges {
     display: flex;
@@ -41,6 +64,10 @@ fieldset {
       transform: rotate(-180deg);
       text-align: center;
     }
+  }
+
+  .positions {
+    flex: 1;
   }
 
   .position {
@@ -71,6 +98,19 @@ fieldset {
       }
     }
   }
+}
+
+.languages {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+
+  .language {
+    flex: 2 1;
+    min-width: 300px;
+    margin: 10px;
+  }
+
 }
 
 .group-title {
