@@ -1,8 +1,29 @@
+.ribbon {
+  background-color: gray;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 10px;
+  gap: 10px;
+
+  .fa {
+    font-size: 4em;
+    color: lightgrey;
+  }
+
+  .stack-overflow-image {
+    object-fit: cover;
+    border-radius: 3px;
+    height: 50px;
+  }
+}
+
 h2 {
   margin: 12px;
 }
 
 .container {
+  margin: 8px;
   display: flex;
   flex-flow: column;
   align-items: center;
@@ -106,6 +127,19 @@ fieldset {
   flex-wrap: wrap;
 
   .language {
+    flex: 2 1;
+    min-width: 300px;
+    margin: 10px;
+  }
+
+}
+
+.awards {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+
+  >hc-tile {
     flex: 2 1;
     min-width: 300px;
     margin: 10px;
