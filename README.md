@@ -1,27 +1,23 @@
-# ResumeApp
+# Resume App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0.
+A web app resume to replace the word doc I've been using most of my career.
 
-## Development server
+See the live product at https://j2jensen.github.io/resume/
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+HTML and CSS give me more freedom in formatting and styles, and as a web app it's easy for people to see right from the Internet. Plus, it gives me a chance to practice programming and setting up continuous deployment.
 
-## Code scaffolding
+## Development
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+The scaffolding was generated with [Angular CLI](https://github.com/angular/angular-cli).
 
-## Build
+Some of my baseline styles and components come from the [Cashmere library](https://cashmere.healthcatalyst.net/web/components).
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Feel free to clone the repo and poke around. `ng serve --open` will build the app and open it in a live web browser session, where the application will automatically reload if you change any of the source files.
 
-## Running unit tests
+## CI/CD
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+I'm using github workflows to automatically build and deploy the app whenever a change is made to the `main` branch.
 
-## Running end-to-end tests
+## Project Status
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+For this small project, I have prioritized simplicity and pragmatism. The code isn't perfectly DRY. I haven't separated code out into components. I haven't separated the data into a separate YAML file. I haven't created separate styles for printing. Even though I'm using Angular, there's nothing interactive about this app. And I haven't written unit tests. Try not to be too judgy. 😉
