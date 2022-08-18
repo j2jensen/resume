@@ -57,7 +57,7 @@ export class AppComponent {
         technologies: [
           { name: "SQL Server" },
           { name: "Snowflake" },
-          { name: "Databricks" },
+          { name: "Spark/Databricks" },
           { name: "RavenDB" },
         ]
       }, {
