@@ -45,20 +45,18 @@ fieldset {
   }
 }
 
-#technologies {
-  >ul {
-    display: flex;
-    flex-flow: row wrap;
-    align-content: space-around;
+.technologies {
+  display: flex;
+  flex-flow: row wrap;
+  align-content: space-around;
 
-    >li {
-      flex: 1 1 auto;
+  >div {
+    flex: 1 1 auto;
 
-      >fieldset {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-      }
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
     }
   }
 }
@@ -87,7 +85,7 @@ fieldset {
   }
 
   .positions {
-    flex: 1;
+    // flex: 1 1 auto;
 
     .title {
       line-height: 1.25;
@@ -240,6 +238,54 @@ fieldset {
       height: auto;
     }
   }
+}
 
+.sections {
+  display: flex;
+  flex-flow: column;
 
+  #experience {
+    order: -1;
+  }
+}
+
+@media print {
+  .top-ribbon {
+    display: none;
+  }
+
+  .body {
+    padding-top: 3px;
+    margin-bottom: 0;
+  }
+
+  hc-tile {
+    padding: 20px;
+    margin-bottom: 10px;
+  }
+
+  /* The fancy vertical text looks cool in web mode, but when printing it doesn't
+   * have its height calculated correctly, and other sections creep into the bottom
+   * of the experiences section.
+   * I'll have to make the company headers show up in a more boring way to make
+   * printing look nice.
+   */
+  .company {
+    flex-flow: column;
+    border-left: none;
+
+    >.time-ranges {
+      flex-flow: column;
+
+      >.time-range {
+        writing-mode: initial;
+        transform: none;
+      }
+    }
+  }
+
+  .chips hc-chip .hc-chip {
+    border: 1px solid lightgray;
+    font-size: 9pt;
+  }
 }

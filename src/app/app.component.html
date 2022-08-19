@@ -23,19 +23,21 @@
     </div>
   </hc-tile>
   <hc-tile class="body">
-    <div class="scroll-nav-container">
+    <div class="sections">
       <div id="technologies">
         <h2>Technologies</h2>
-        <ul>
-          <li *ngFor="let group of profile.technologyGroups">
+        <div class="technologies">
+          <div *ngFor="let group of profile.technologyGroups">
             <fieldset>
               <legend>{{group.title}}</legend>
-              <hc-chip *ngFor="let tech of group.technologies">
-                {{tech.name}}
-              </hc-chip>
+              <div class="chips">
+                <hc-chip *ngFor="let tech of group.technologies">
+                  {{tech.name}}
+                </hc-chip>
+              </div>
             </fieldset>
-          </li>
-        </ul>
+          </div>
+        </div>
       </div>
       <div id="experience">
         <h2>Experience</h2>
@@ -240,11 +242,10 @@
                 </p>
                 <h4>Responsibilities</h4>
                 <ul>
-                  <li>Design, coding, and code reviews</li>
-                  <li>Regular HIPAA training and compliance</li>
-                  <li>Finding and fixing defects and performance problems</li>
-                  <li>Designed a system to reduce deployment down-time by performing continuous data migrations in a
-                    document-oriented database while the system was running</li>
+                  <li>Evaluated, optimized and documented standard operating procedures</li>
+                  <li>Wrote specifications and proposal for a web-based field service reporting application</li>
+                  <li>Programmed Visual Basic Application tools to automate reporting and data collection</li>
+                  <li>Awarded multiple “Night on the Town” awards for outstanding work</li>
                 </ul>
               </div>
             </div>
