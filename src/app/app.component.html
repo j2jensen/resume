@@ -31,9 +31,9 @@
             <fieldset>
               <legend>{{group.title}}</legend>
               <div class="chips">
-                <hc-chip *ngFor="let tech of group.technologies">
+                <div class="tag" *ngFor="let tech of group.technologies">
                   {{tech.name}}
-                </hc-chip>
+                </div>
               </div>
             </fieldset>
           </div>
