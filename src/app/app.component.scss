@@ -269,6 +269,30 @@ h2 {
   }
 }
 
+@mixin suppress-vertical-company-layout {
+  flex-flow: column;
+  border-left: none;
+
+  >.time-ranges {
+    flex-flow: column;
+
+    >.time-range {
+      writing-mode: initial;
+      transform: none;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+
+  /* The vertical company headers force things to get kind of squishy
+   * when the screen is really narrow (like on mobile phones).
+   */
+  .company {
+    @include suppress-vertical-company-layout;
+  }
+}
+
 @media print {
   .top-ribbon {
     display: none;
@@ -291,17 +315,7 @@ h2 {
    * printing look nice.
    */
   .company {
-    flex-flow: column;
-    border-left: none;
-
-    >.time-ranges {
-      flex-flow: column;
-
-      >.time-range {
-        writing-mode: initial;
-        transform: none;
-      }
-    }
+    @include suppress-vertical-company-layout;
   }
 
   .technologies>div .chips .tag {
