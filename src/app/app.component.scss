@@ -243,29 +243,42 @@ h2 {
   }
 }
 
-.education {
+.educations {
   display: flex;
-  flex-flow: row wrap;
-  gap: 20px;
-  align-items: center;
-  justify-content: center;
+  flex: 1;
 
-  .logo {
-    width: 50px;
+  .education {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
 
-    img {
-      width: 100%;
-      height: auto;
+
+    .logo {
+      width: 60px;
+
+      img {
+        width: 100%;
+        height: auto;
+      }
     }
   }
 }
 
 .sections {
   display: flex;
-  flex-flow: column;
+  flex-flow: row wrap;
 
   #experience {
     order: -1;
+  }
+
+  >div {
+    flex: 1 auto;
+    display: flex;
+    flex-flow: column;
   }
 }
 
@@ -308,6 +321,17 @@ h2 {
     margin-bottom: 10px;
   }
 
+  .sections>div {
+
+    &#education {
+      flex: 2;
+    }
+
+    &#languages {
+      flex: 3;
+    }
+  }
+
   /* The fancy vertical text looks cool in web mode, but when printing it doesn't
    * have its height calculated correctly, and other sections creep into the bottom
    * of the experiences section.
@@ -316,9 +340,34 @@ h2 {
    */
   .company {
     @include suppress-vertical-company-layout;
+
+    .details h3,
+    .details p {
+      font-size: 10pt;
+    }
   }
 
-  .technologies>div .chips .tag {
-    border-color: gray;
+  .technologies {
+    font-size: 9pt;
+
+    >div .chips .tag {
+      border-color: gray;
+      font-size: 9pt;
+      padding: 4px 6px;
+      margin: 3px;
+    }
+  }
+
+  #community,
+  #training {
+    >ul {
+      padding: 5px 10px;
+
+      >li {
+        padding: 5px;
+        font-size: 10pt;
+        line-height: 1.2;
+      }
+    }
   }
 }

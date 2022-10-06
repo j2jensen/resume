@@ -20,4 +20,4 @@ I'm using github workflows to automatically build and deploy the app whenever a 
 
 ## Project Status
 
-For this small project, I have prioritized simplicity and pragmatism. The code isn't perfectly DRY. I haven't separated code out into components. I haven't separated the data into a separate YAML file. I haven't created separate styles for printing. Even though I'm using Angular, there's nothing interactive about this app. And I haven't written unit tests. Try not to be too judgy. 😉
+For this small project, I have prioritized simplicity and pragmatism. The code isn't perfectly DRY. I haven't separated code out into components. I haven't separated the data into a separate YAML file. Even though I'm using Angular, there's nothing interactive about this app. And I haven't written unit tests. Try not to be too judgy. 😉
