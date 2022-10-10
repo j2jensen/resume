@@ -18,6 +18,31 @@
   }
 }
 
+.contact {
+
+  // Use the same color even for email links.
+  &,
+  a,
+  a:link,
+  a:visited,
+  a:hover,
+  a:active {
+    color: grey;
+  }
+
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  margin-top: 12px;
+
+  .contact-method {
+    display: flex;
+    gap: 8px;
+
+
+  }
+}
+
 h2 {
   margin: 12px;
 }
@@ -371,7 +396,7 @@ h2 {
     }
   }
 
-  .awards>hc-tile{
+  .awards>hc-tile {
     min-width: 200px;
   }
 }
