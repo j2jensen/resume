@@ -340,7 +340,7 @@ h2 {
   /* The vertical company headers force things to get kind of squishy
    * when the screen is really narrow (like on mobile phones).
    */
-  .company {
+  .experience .company {
     @include suppress-vertical-company-layout;
   }
 }
