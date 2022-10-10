@@ -182,12 +182,16 @@ h2 {
     flex: 2 1;
     min-width: 300px;
     margin: 10px;
+    position: relative;
 
     >.level {
       line-height: 1.5;
+
+      position: absolute;
+      right: 20px;
+      top: 20px;
     }
   }
-
 }
 
 .awards {
@@ -355,7 +359,7 @@ h2 {
     &#education {
       flex: 2;
 
-      .education{
+      .education {
         flex-flow: column;
       }
     }
