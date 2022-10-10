@@ -1,358 +1,362 @@
-<div class="top-ribbon">
-  <a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/users/120955/striplingwarrior">
-    <img class="stack-overflow-image" src="https://stackoverflow.com/users/flair/120955.png"
-      alt="profile for StriplingWarrior at Stack Overflow, Q&amp;A for professional and enthusiast programmers"
-      title="profile for StriplingWarrior at Stack Overflow, Q&amp;A for professional and enthusiast programmers">
-  </a>
-  <a target="_blank" rel="noopener noreferrer" href="https://www.codementor.io/@j2jensen?refer=badge">
-    <img src="https://www.codementor.io/m-badges/j2jensen/im-a-cm-g.svg" alt="Codementor badge">
-  </a>
-  <a title="See my LinkedIn profile" target="_blank" rel="noopener noreferrer"
-    href="https://www.linkedin.com/in/j2jensen/">
-    <i class="fa fa-linkedin" aria-hidden="true"></i>
-  </a>
-  <a title="See this project's code on Github" target="_blank" rel="noopener noreferrer"
-    href="https://github.com/j2jensen/resume">
-    <i class="fa fa-github" aria-hidden="true"></i>
-  </a>
-</div>
-<div class="container">
-  <hc-tile>
-    <div hcTileHeader type="center">
-      <h1>James K. Jensen</h1>
-    </div>
-    <div class="contact">
-      <a href="mailto:James Jensen &lt;j2jensen@gmail.com&gt;">
-        <div class="contact-method" title="Email">
-          <i class="fa fa-envelope" aria-hidden="true"></i>
-          <span class="method-value">j2jensen@gmail.com</span>
+<div class="resume" [ngClass]="{'printable': isPrintable}">
+  <div class="top-ribbon">
+    <a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/users/120955/striplingwarrior">
+      <img class="stack-overflow-image" src="https://stackoverflow.com/users/flair/120955.png"
+        alt="profile for StriplingWarrior at Stack Overflow, Q&amp;A for professional and enthusiast programmers"
+        title="profile for StriplingWarrior at Stack Overflow, Q&amp;A for professional and enthusiast programmers">
+    </a>
+    <a target="_blank" rel="noopener noreferrer" href="https://www.codementor.io/@j2jensen?refer=badge">
+      <img src="https://www.codementor.io/m-badges/j2jensen/im-a-cm-g.svg" alt="Codementor badge">
+    </a>
+    <a title="See my LinkedIn profile" target="_blank" rel="noopener noreferrer"
+      href="https://www.linkedin.com/in/j2jensen/">
+      <i class="fa fa-linkedin" aria-hidden="true"></i>
+    </a>
+    <a title="See this project's code on Github" target="_blank" rel="noopener noreferrer"
+      href="https://github.com/j2jensen/resume">
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+  </div>
+  <div class="container">
+    <hc-tile>
+      <div hcTileHeader type="center">
+        <h1>James K. Jensen</h1>
+      </div>
+      <div class="contact">
+        <a href="mailto:James Jensen &lt;j2jensen@gmail.com&gt;">
+          <div class="contact-method" title="Email">
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+            <span class="method-value">j2jensen@gmail.com</span>
+          </div>
+        </a>
+      </div>
+    </hc-tile>
+    <hc-tile class="body">
+      <div class="sections">
+        <div id="technologies">
+          <h2>Technologies</h2>
+          <div class="technologies">
+            <div *ngFor="let group of profile.technologyGroups">
+              <fieldset>
+                <legend>{{group.title}}</legend>
+                <div class="chips">
+                  <div class="tag" *ngFor="let tech of group.technologies">
+                    {{tech.name}}
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+          </div>
         </div>
-      </a>
-    </div>
-  </hc-tile>
-  <hc-tile class="body">
-    <div class="sections">
-      <div id="technologies">
-        <h2>Technologies</h2>
-        <div class="technologies">
-          <div *ngFor="let group of profile.technologyGroups">
-            <fieldset>
-              <legend>{{group.title}}</legend>
-              <div class="chips">
-                <div class="tag" *ngFor="let tech of group.technologies">
-                  {{tech.name}}
+        <div id="experience">
+          <h2>Experience</h2>
+
+          <div class="company">
+            <div class="time-ranges">
+              <div class="time-range">
+                <h3>Health Catalyst</h3>
+                <span>2016 to Present</span>
+              </div>
+            </div>
+            <div class="positions">
+              <div class="position">
+                <div class="time-ranges">
+                  <div class="time-range">
+                    <h4 class="title">Sr. Director, Software Engineering</h4>
+                    <span>July 2021 to Present</span>
+                  </div>
+                </div>
+                <div class="details">
+                  <h3>Healthcare-Specific Data Organization</h3>
+                  <p>Technical leadership over FHIR and Terminology/MDM teams in the Healthcare-Specific Data
+                    Organization within the Platform group</p>
+                  <p>
+                    Responsibilities include hiring, holding regular one-on-ones (including skip-level), and driving
+                    adoption of best-practices</p>
                 </div>
               </div>
-            </fieldset>
+              <div class="position">
+                <div class="time-ranges">
+                  <div class="time-range">
+                    <h4 class="title">Director, Software Engineering</h4>
+                    <span>July 2019 to July 2021</span>
+                  </div>
+                  <div class="time-range">
+                    <h4 class="title">Software Engineering Manager</h4>
+                    <span>February 2018 to June 2019</span>
+                  </div>
+                  <div class="time-range">
+                    <h4 class="title">Senior Software Engineer</h4>
+                    <span>March 2016 to February 2018</span>
+                  </div>
+                </div>
+                <div class="details">
+                  <h3>Pop Analyzer Product</h3>
+                  <p>Web application allowing users to define criteria for items (e.g. Patients), explore the data
+                    associated with items matching those criteria, and publish the results into the ETL metadata, for
+                    consumption from the Enterprise Data Warehouse.
+                  </p>
+                  <p>
+                    Includes crucial integrations for the Care Management
+                    and Pop Insights applications.
+                  </p>
+                  <p>
+                    Also the company's first application to support querying the Snowflake
+                    warehouse</p>
+                  <h4>Responsibilities</h4>
+                  <ul>
+                    <li>Formed a team and led the creation of one of the company's most successful and highly rated
+                      applications</li>
+                    <li><em>Member</em>, Cybersecurity and Compliance Steering Committee</li>
+                    <li><em>Business Unit Representative</em>, Technology Architecture Council</li>
+                    <li><em>Member</em>, Open Space Committee</li>
+                    <li><em>Subject-Matter Expert</em>, ASO Team Code Review Competency Framework</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
+
+          <div class="company">
+            <div class="time-ranges">
+              <div class="time-range">
+                <h3>Aviacode</h3>
+                <span>2015 to 2016</span>
+              </div>
+            </div>
+            <div class="positions">
+              <div class="position">
+                <div class="time-ranges">
+                  <div class="time-range">
+                    <h4 class="title">Senior Software Developer</h4>
+                    <span>February 2015 to February 2016</span>
+                  </div>
+                </div>
+                <div class="details">
+                  <p>
+                    Multi-tenant web application facilitating medical billing and coding
+                  </p>
+                  <h4>Responsibilities</h4>
+                  <ul>
+                    <li>Design, coding, and code reviews</li>
+                    <li>Finding and fixing defects and performance problems</li>
+                    <li>Designed a system to reduce deployment down-time by performing continuous data migrations in a
+                      document-oriented database while the system was running</li>
+                    <li>Regular HIPAA training and compliance</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="company">
+            <div class="time-ranges">
+              <div class="time-range">
+                <h3>Truenorthlogic</h3>
+                <span>2007 to 2015</span>
+              </div>
+            </div>
+            <div class="positions">
+              <div class="position">
+                <div class="time-ranges">
+                  <div class="time-range">
+                    <h4 class="title">Software Architect</h4>
+                    <span>October 2012 to February 2015</span>
+                  </div>
+                  <div class="time-range">
+                    <h4 class="title">Software Engineer</h4>
+                    <span>October 2007 to October 2012</span>
+                  </div>
+                </div>
+                <div class="details">
+                  <p>
+                    Multi-module web application supporting professional development for teachers in American public
+                    schools
+                  </p>
+                  <h4>Responsibilities</h4>
+                  <ul>
+                    <li>Agile Daily Scrum Leader</li>
+                    <li>Spearheaded the company's first foray into .NET technologies. As the .NET team grew, I became
+                      the
+                      de-facto team lead</li>
+                    <li>Fostered the adoption of best practices by instruction and by example: unit testing, code
+                      reviews,
+                      fail-fast coding, SOLID principles (including dependency injection), and unobtrusive JavaScript.
+                    </li>
+                    <li>Proposed, designed, and implemented several frameworks to improve product scalability:
+                      event-driven AJAX architecture, web portal with demographically-targeted content, configuration
+                      system, email- and web-based notification systems, rules engine, and macro parser/evaluator</li>
+                    <li>Participated in architecture and design decisions</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="company">
+            <div class="time-ranges">
+              <div class="time-range">
+                <h3>France Paris Mission</h3>
+                <h4></h4>
+                <span>2005 to 2007</span>
+              </div>
+            </div>
+            <div class="positions">
+              <div class="position">
+                <div class="time-ranges">
+                  <div class="time-range">
+                    <h4 class="title">Financial Secretary</h4>
+                    <span>November 2006 to May 2007</span>
+                  </div>
+                </div>
+                <div class="details">
+                  <h4>Responsibilities</h4>
+                  <ul>
+                    <li>Part of an unpaid volunteer mission spanning from August 2005 to August 2007
+                    </li>
+                    <li>Managed rent, utilities, medical expenses, travel reimbursements, and other payments for
+                      approximately 140 individuals in 60 apartments throughout north-west France
+                    </li>
+                    <li>Made payments involving checks, cash, and electronic money transfers
+                    </li>
+                    <li>Analyzed and reconciled spending for a variety of accounts
+                    </li>
+                    <li>Client-to-business correspondence in French by letter, email, fax, and telephone
+                    </li>
+                    <li>Meticulous record-keeping
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="company">
+            <div class="time-ranges">
+              <div class="time-range">
+                <h3>GE OEC Medical Systems</h3>
+                <span>2004 to 2005</span>
+              </div>
+            </div>
+            <div class="positions">
+              <div class="position">
+                <div class="time-ranges">
+                  <div class="time-range">
+                    <h4 class="title">Regulatory Intern</h4>
+                    <span>May 2004 to August 2005</span>
+                  </div>
+                </div>
+                <div class="details">
+                  <p>
+                    Multi-tenant Web Application facilitating medical billing and coding
+                  </p>
+                  <h4>Responsibilities</h4>
+                  <ul>
+                    <li>Evaluated, optimized, and documented standard operating procedures</li>
+                    <li>Wrote specifications and proposal for a web-based field service reporting application</li>
+                    <li>Programmed Visual Basic Application tools to automate reporting and data collection</li>
+                    <li>Awarded multiple “Night on the Town” awards for outstanding work</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="education">
+          <h2>Education</h2>
+          <div class="educations">
+            <hc-tile class="education">
+              <div class="logo">
+                <img src="assets/BlockU_redweb.png" />
+              </div>
+              <div>
+                <h3>The University of Utah</h3>
+                <h4>Bachelors: Computer Science</h4>
+                <span>Class of 2007</span>
+              </div>
+            </hc-tile>
+          </div>
+        </div>
+        <div id="languages">
+          <h2>Languages</h2>
+          <div class="languages">
+            <hc-tile class="language">
+              <h3>English</h3>
+              <span class="level">
+                <i class="fa fa-volume-up"></i>
+                Native
+              </span>
+              <p>Very strong technical writing and interpersonal communication skills</p>
+            </hc-tile>
+            <hc-tile class="language">
+              <h3>French</h3>
+              <span class="level">
+                <i class="fa fa-volume-up"></i>
+                Fluent
+              </span>
+              <p>Can read and write professional correspondence</p>
+            </hc-tile>
+          </div>
+        </div>
+        <div id="awards">
+          <h2>Awards</h2>
+          <div class="awards">
+            <hc-tile>
+              <h3>3rd Degree Black Belt</h3>
+              <div class="organization">West Coast World Martial Arts</div>
+              <div class="time"><span>2021</span></div>
+            </hc-tile>
+            <hc-tile>
+              <h3>North Star Award</h3>
+              <div class="organization">Truenorthlogic</div>
+              <div class="time"><span title="February 2001 & May 2014">x2</span></div>
+            </hc-tile>
+            <hc-tile>
+              <h3>Lanny McOmber Scholarship</h3>
+              <div class="organization">GE OEC Medical Systems</div>
+              <div class="time"><span>2001</span></div>
+            </hc-tile>
+            <hc-tile>
+              <h3>Honors at Entrance Scholarship</h3>
+              <div class="organization">University of Utah</div>
+              <div class="time"><span>2001</span></div>
+            </hc-tile>
+            <hc-tile>
+              <h3>Eagle Scout Award</h3>
+              <div class="organization">Boy Scouts of America</div>
+              <div class="time"><span>2000</span></div>
+            </hc-tile>
+          </div>
+        </div>
+        <div id="community">
+          <h2>Community Involvement</h2>
+          <ul>
+            <li>Active participant on StackOverflow.com, with over 140,000 reputation points</li>
+            <li>Volunteered to teach coding at an underprivileged elementary school several times</li>
+            <li>Mentored aspiring developers in various settings, including Codementor.io (5-star rating)</li>
+            <li>Various church-related volunteer work</li>
+          </ul>
+        </div>
+        <div id="training">
+          <h2>Training and Conferences</h2>
+          <ul>
+            <li>2022 (ongoing): Health Catalyst Servant Leadership Program Training</li>
+            <li>2022: FHIR Dev Days</li>
+            <li>2021: Snowflake Training</li>
+            <li>2020: Crucial Conversations Workshop</li>
+            <li title="Plus a day-long Machine Learning workshop">2018: Dev Intersection</li>
+            <li>2017: Human Connections Workshop</li>
+            <li title="Subject: How to Fail, at Programming and Life">2016: Utah Code Camp and Big Mountain Data --
+              Speaker</li>
+            <li title="This was the first Angular conference ever to take place">2014: ng-conf (AngularJS)</li>
+            <li>2012: iDesign's Architect's Master Class, taught by Juval Lowy</li>
+            <li>Continually: Various local conferences, including Silicon Slopes and Healthcare Analytics Summit</li>
+          </ul>
         </div>
       </div>
-      <div id="experience">
-        <h2>Experience</h2>
 
-        <div class="company">
-          <div class="time-ranges">
-            <div class="time-range">
-              <h3>Health Catalyst</h3>
-              <span>2016 to Present</span>
-            </div>
-          </div>
-          <div class="positions">
-            <div class="position">
-              <div class="time-ranges">
-                <div class="time-range">
-                  <h4 class="title">Sr. Director, Software Engineering</h4>
-                  <span>July 2021 to Present</span>
-                </div>
-              </div>
-              <div class="details">
-                <h3>Healthcare-Specific Data Organization</h3>
-                <p>Technical leadership over FHIR and Terminology/MDM teams in the Healthcare-Specific Data
-                  Organization within the Platform group</p>
-                <p>
-                  Responsibilities include hiring, holding regular one-on-ones (including skip-level), and driving
-                  adoption of best-practices</p>
-              </div>
-            </div>
-            <div class="position">
-              <div class="time-ranges">
-                <div class="time-range">
-                  <h4 class="title">Director, Software Engineering</h4>
-                  <span>July 2019 to July 2021</span>
-                </div>
-                <div class="time-range">
-                  <h4 class="title">Software Engineering Manager</h4>
-                  <span>February 2018 to June 2019</span>
-                </div>
-                <div class="time-range">
-                  <h4 class="title">Senior Software Engineer</h4>
-                  <span>March 2016 to February 2018</span>
-                </div>
-              </div>
-              <div class="details">
-                <h3>Pop Analyzer Product</h3>
-                <p>Web application allowing users to define criteria for items (e.g. Patients), explore the data
-                  associated with items matching those criteria, and publish the results into the ETL metadata, for
-                  consumption from the Enterprise Data Warehouse.
-                </p>
-                <p>
-                  Includes crucial integrations for the Care Management
-                  and Pop Insights applications.
-                </p>
-                <p>
-                  Also the company's first application to support querying the Snowflake
-                  warehouse</p>
-                <h4>Responsibilities</h4>
-                <ul>
-                  <li>Formed a team and led the creation of one of the company's most successful and highly rated
-                    applications</li>
-                  <li><em>Member</em>, Cybersecurity and Compliance Steering Committee</li>
-                  <li><em>Business Unit Representative</em>, Technology Architecture Council</li>
-                  <li><em>Member</em>, Open Space Committee</li>
-                  <li><em>Subject-Matter Expert</em>, ASO Team Code Review Competency Framework</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="company">
-          <div class="time-ranges">
-            <div class="time-range">
-              <h3>Aviacode</h3>
-              <span>2015 to 2016</span>
-            </div>
-          </div>
-          <div class="positions">
-            <div class="position">
-              <div class="time-ranges">
-                <div class="time-range">
-                  <h4 class="title">Senior Software Developer</h4>
-                  <span>February 2015 to February 2016</span>
-                </div>
-              </div>
-              <div class="details">
-                <p>
-                  Multi-tenant web application facilitating medical billing and coding
-                </p>
-                <h4>Responsibilities</h4>
-                <ul>
-                  <li>Design, coding, and code reviews</li>
-                  <li>Finding and fixing defects and performance problems</li>
-                  <li>Designed a system to reduce deployment down-time by performing continuous data migrations in a
-                    document-oriented database while the system was running</li>
-                  <li>Regular HIPAA training and compliance</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="company">
-          <div class="time-ranges">
-            <div class="time-range">
-              <h3>Truenorthlogic</h3>
-              <span>2007 to 2015</span>
-            </div>
-          </div>
-          <div class="positions">
-            <div class="position">
-              <div class="time-ranges">
-                <div class="time-range">
-                  <h4 class="title">Software Architect</h4>
-                  <span>October 2012 to February 2015</span>
-                </div>
-                <div class="time-range">
-                  <h4 class="title">Software Engineer</h4>
-                  <span>October 2007 to October 2012</span>
-                </div>
-              </div>
-              <div class="details">
-                <p>
-                  Multi-module web application supporting professional development for teachers in American public
-                  schools
-                </p>
-                <h4>Responsibilities</h4>
-                <ul>
-                  <li>Agile Daily Scrum Leader</li>
-                  <li>Spearheaded the company's first foray into .NET technologies. As the .NET team grew, I became the
-                    de-facto team lead</li>
-                  <li>Fostered the adoption of best practices by instruction and by example: unit testing, code reviews,
-                    fail-fast coding, SOLID principles (including dependency injection), and unobtrusive JavaScript.
-                  </li>
-                  <li>Proposed, designed, and implemented several frameworks to improve product scalability:
-                    event-driven AJAX architecture, web portal with demographically-targeted content, configuration
-                    system, email- and web-based notification systems, rules engine, and macro parser/evaluator</li>
-                  <li>Participated in architecture and design decisions</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="company">
-          <div class="time-ranges">
-            <div class="time-range">
-              <h3>France Paris Mission</h3>
-              <h4></h4>
-              <span>2005 to 2007</span>
-            </div>
-          </div>
-          <div class="positions">
-            <div class="position">
-              <div class="time-ranges">
-                <div class="time-range">
-                  <h4 class="title">Financial Secretary</h4>
-                  <span>November 2006 to May 2007</span>
-                </div>
-              </div>
-              <div class="details">
-                <h4>Responsibilities</h4>
-                <ul>
-                  <li>Part of an unpaid volunteer mission spanning from August 2005 to August 2007
-                  </li>
-                  <li>Managed rent, utilities, medical expenses, travel reimbursements, and other payments for
-                    approximately 140 individuals in 60 apartments throughout north-west France
-                  </li>
-                  <li>Made payments involving checks, cash, and electronic money transfers
-                  </li>
-                  <li>Analyzed and reconciled spending for a variety of accounts
-                  </li>
-                  <li>Client-to-business correspondence in French by letter, email, fax, and telephone
-                  </li>
-                  <li>Meticulous record-keeping
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="company">
-          <div class="time-ranges">
-            <div class="time-range">
-              <h3>GE OEC Medical Systems</h3>
-              <span>2004 to 2005</span>
-            </div>
-          </div>
-          <div class="positions">
-            <div class="position">
-              <div class="time-ranges">
-                <div class="time-range">
-                  <h4 class="title">Regulatory Intern</h4>
-                  <span>May 2004 to August 2005</span>
-                </div>
-              </div>
-              <div class="details">
-                <p>
-                  Multi-tenant Web Application facilitating medical billing and coding
-                </p>
-                <h4>Responsibilities</h4>
-                <ul>
-                  <li>Evaluated, optimized, and documented standard operating procedures</li>
-                  <li>Wrote specifications and proposal for a web-based field service reporting application</li>
-                  <li>Programmed Visual Basic Application tools to automate reporting and data collection</li>
-                  <li>Awarded multiple “Night on the Town” awards for outstanding work</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div id="education">
-        <h2>Education</h2>
-        <div class="educations">
-          <hc-tile class="education">
-            <div class="logo">
-              <img src="assets/BlockU_redweb.png" />
-            </div>
-            <div>
-              <h3>The University of Utah</h3>
-              <h4>Bachelors: Computer Science</h4>
-              <span>Class of 2007</span>
-            </div>
-          </hc-tile>
-        </div>
-      </div>
-      <div id="languages">
-        <h2>Languages</h2>
-        <div class="languages">
-          <hc-tile class="language">
-            <h3>English</h3>
-            <span class="level">
-              <i class="fa fa-volume-up"></i>
-              Native
-            </span>
-            <p>Very strong technical writing and interpersonal communication skills</p>
-          </hc-tile>
-          <hc-tile class="language">
-            <h3>French</h3>
-            <span class="level">
-              <i class="fa fa-volume-up"></i>
-              Fluent
-            </span>
-            <p>Can read and write professional correspondence</p>
-          </hc-tile>
-        </div>
-      </div>
-      <div id="awards">
-        <h2>Awards</h2>
-        <div class="awards">
-          <hc-tile>
-            <h3>3rd Degree Black Belt</h3>
-            <div class="organization">West Coast World Martial Arts</div>
-            <div class="time"><span>2021</span></div>
-          </hc-tile>
-          <hc-tile>
-            <h3>North Star Award</h3>
-            <div class="organization">Truenorthlogic</div>
-            <div class="time"><span title="February 2001 & May 2014">x2</span></div>
-          </hc-tile>
-          <hc-tile>
-            <h3>Lanny McOmber Scholarship</h3>
-            <div class="organization">GE OEC Medical Systems</div>
-            <div class="time"><span>2001</span></div>
-          </hc-tile>
-          <hc-tile>
-            <h3>Honors at Entrance Scholarship</h3>
-            <div class="organization">University of Utah</div>
-            <div class="time"><span>2001</span></div>
-          </hc-tile>
-          <hc-tile>
-            <h3>Eagle Scout Award</h3>
-            <div class="organization">Boy Scouts of America</div>
-            <div class="time"><span>2000</span></div>
-          </hc-tile>
-        </div>
-      </div>
-      <div id="community">
-        <h2>Community Involvement</h2>
-        <ul>
-          <li>Active participant on StackOverflow.com, with over 140,000 reputation points</li>
-          <li>Volunteered to teach coding at an underprivileged elementary school several times</li>
-          <li>Mentored aspiring developers in various settings, including Codementor.io (5-star rating)</li>
-          <li>Various church-related volunteer work</li>
-        </ul>
-      </div>
-      <div id="training">
-        <h2>Training and Conferences</h2>
-        <ul>
-          <li>2022 (ongoing): Health Catalyst Servant Leadership Program Training</li>
-          <li>2022: FHIR Dev Days</li>
-          <li>2021: Snowflake Training</li>
-          <li>2020: Crucial Conversations Workshop</li>
-          <li title="Plus a day-long Machine Learning workshop">2018: Dev Intersection</li>
-          <li>2017: Human Connections Workshop</li>
-          <li title="Subject: How to Fail, at Programming and Life">2016: Utah Code Camp and Big Mountain Data --
-            Speaker</li>
-          <li title="This was the first Angular conference ever to take place">2014: ng-conf (AngularJS)</li>
-          <li>2012: iDesign's Architect's Master Class, taught by Juval Lowy</li>
-          <li>Continually: Various local conferences, including Silicon Slopes and Healthcare Analytics Summit</li>
-        </ul>
-      </div>
-    </div>
-
-  </hc-tile>
+    </hc-tile>
+  </div>
 </div>

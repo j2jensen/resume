@@ -56,6 +56,10 @@ h2 {
   >hc-tile {
     max-width: 1280px;
   }
+
+  >hc-tile.body {
+    padding-top: 3px;
+  }
 }
 
 .technologies {
@@ -331,13 +335,13 @@ h2 {
   }
 }
 
-@media print {
+@mixin printable {
+
   .top-ribbon {
     display: none;
   }
 
   .body {
-    padding-top: 3px;
     margin-bottom: 0;
   }
 
@@ -357,18 +361,25 @@ h2 {
     }
   }
 
-  /* The fancy vertical text looks cool in web mode, but when printing it doesn't
-   * have its height calculated correctly, and other sections creep into the bottom
-   * of the experiences section.
-   * I'll have to make the company headers show up in a more boring way to make
-   * printing look nice.
-   */
-  .company {
-    @include suppress-vertical-company-layout;
 
-    .details h3,
-    .details p {
-      font-size: 10pt;
+  #experience {
+    h2 {
+      margin-bottom: -20px;
+    }
+
+    /* The fancy vertical text looks cool in web mode, but when printing it doesn't
+    * have its height calculated correctly, and other sections creep into the bottom
+    * of the experiences section.
+    * I'll have to make the company headers show up in a more boring way to make
+    * printing look nice.
+    */
+    .company {
+      @include suppress-vertical-company-layout;
+
+      .details h3,
+      .details p {
+        font-size: 10pt;
+      }
     }
   }
 
@@ -399,4 +410,14 @@ h2 {
   .awards>hc-tile {
     min-width: 200px;
   }
+
+}
+
+// This just makes it easier for me to debug print mode by adding a query param.
+.printable {
+  @include printable();
+}
+
+@media print {
+  @include printable();
 }

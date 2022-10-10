@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { CashmereModule } from './cashmere.module';
@@ -10,7 +11,8 @@ import { CashmereModule } from './cashmere.module';
   ],
   imports: [
     BrowserModule,
-    CashmereModule
+    CashmereModule,
+    RouterModule.forRoot([])
   ],
   providers: [],
   bootstrap: [AppComponent]
