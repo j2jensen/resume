@@ -45,6 +45,7 @@
 
 h2 {
   margin: 12px;
+  margin-bottom: 0;
 }
 
 .container {
@@ -109,69 +110,74 @@ h2 {
 
 }
 
-.company {
-  display: flex;
-  flex-flow: row;
-  gap: 22px;
+.experience {
+  margin-top: 10px;
 
-  border-left: 1px solid lightgrey;
-  border-radius: 14px;
-  border-right: none;
-  margin-bottom: -1px;
-  padding: 10px;
-
-  >.time-ranges {
-    display: flex;
-    flex-flow: row;
-    flex: 0 1 auto;
-
-    >.time-range {
-      margin: 5px;
-      writing-mode: vertical-rl;
-      transform: rotate(-180deg);
-      text-align: center;
-    }
-  }
-
-  .positions {
-    flex: 1 1 auto;
-
-    .title {
-      line-height: 1.25;
-      margin-bottom: 5px;
-      font-size: 11.5pt;
-    }
-  }
-
-  .position {
+  .company {
     display: flex;
     flex-flow: row;
     gap: 22px;
 
+    border-left: 1px solid lightgrey;
+    border-radius: 14px;
+    border-right: none;
+    margin-bottom: -1px;
+    padding: 10px;
+
     >.time-ranges {
       display: flex;
-      flex-flow: column;
-      gap: 22px;
-      flex: 1;
+      flex-flow: row;
+      flex: 0 1 auto;
+
+      >.time-range {
+        margin: 5px;
+        writing-mode: vertical-rl;
+        transform: rotate(-180deg);
+        text-align: center;
+      }
     }
 
-    >.details {
-      flex: 3;
+    .positions {
+      flex: 1 1 auto;
 
-      p {
-        line-height: 1.2;
-        margin-bottom: 0.8em;
+      .title {
+        line-height: 1.25;
+        margin-bottom: 5px;
+        font-size: 11.5pt;
+      }
+    }
+
+    .position {
+      display: flex;
+      flex-flow: row;
+      gap: 22px;
+
+      >.time-ranges {
+        display: flex;
+        flex-flow: column;
+        gap: 22px;
+        flex: 1;
       }
 
-      ul {
-        line-height: 1.2;
-        list-style: disc;
-        padding-left: 10px;
-        margin-left: 10px;
+      >.details {
+        flex: 3;
+
+        p {
+          line-height: 1.2;
+          margin-bottom: 0.8em;
+        }
+
+        ul {
+          line-height: 1.2;
+          list-style: disc;
+          padding-left: 10px;
+          margin-left: 10px;
+        }
       }
     }
   }
 }
+
 
 .languages {
   display: flex;
@@ -350,8 +356,17 @@ h2 {
   }
 
   hc-tile {
-    padding: 20px;
     margin-bottom: 10px;
+
+    // Less space around cards
+    padding: 15px;
+
+    // If we change the padding on the tile, we also have to move the fluency indicators
+    // to match
+    .language>.level {
+      top: 15px;
+      right: 15px;
+    }
   }
 
   .sections>div {
@@ -372,7 +387,7 @@ h2 {
 
   #experience {
     h2 {
-      margin-bottom: -20px;
+      margin-bottom: -50px;
     }
 
     /* The fancy vertical text looks cool in web mode, but when printing it doesn't
