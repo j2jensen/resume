@@ -347,6 +347,14 @@ h2 {
 
 @mixin printable {
 
+  h2 {
+    font-size: 14pt;
+  }
+
+  h3 {
+    font-size: 12pt;
+  }
+
   .top-ribbon {
     display: none;
   }
