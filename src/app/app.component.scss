@@ -354,6 +354,10 @@ h2 {
 
     &#education {
       flex: 2;
+
+      .education{
+        flex-flow: column;
+      }
     }
 
     &#languages {
