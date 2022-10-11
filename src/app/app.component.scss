@@ -39,7 +39,10 @@
     display: flex;
     gap: 8px;
 
-
+    // Hide resume and linkedin links unless printing.
+    &.print-only {
+      display: none;
+    }
   }
 }
 
@@ -351,6 +354,9 @@ h2 {
 }
 
 @mixin printable {
+  .contact .contact-method.print-only {
+    display: flex;
+  }
 
   h2 {
     font-size: 14pt;
