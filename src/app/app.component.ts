@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ButtonToggleChangeEvent } from '@healthcatalyst/cashmere';
+
+type ExperienceMode = ("positions" | "responsibilities" | "detailed");
 
 @Component({
   selector: 'app-root',
@@ -9,6 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 export class AppComponent implements OnInit {
   title = 'resume-app';
   isPrintable = true;
+  experienceMode: ExperienceMode = "responsibilities";
   profile = {
     technologyGroups: [
       {
@@ -85,5 +89,12 @@ export class AppComponent implements OnInit {
       .subscribe(params => {
         this.isPrintable = params["print"] !== undefined;
       })
+  }
+
+  public onExperienceModeChange(event: ButtonToggleChangeEvent) {
+    if (!event.selectedValues) {
+      throw Error('Experience mode must have a selection');
+    }
+    this.experienceMode = event.selectedValues[0] as ExperienceMode;
   }
 }

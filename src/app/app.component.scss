@@ -110,6 +110,33 @@ h2 {
 
 }
 
+#experience>.header {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+
+  hc-button-toggle-group {
+    flex: 1;
+    justify-content: flex-end;
+    align-items: center;
+  }
+}
+
+@mixin suppress-vertical-company-layout {
+  flex-flow: column;
+  border-left: none;
+  gap: 0;
+
+  >.time-ranges {
+    flex-flow: column;
+
+    >.time-range {
+      writing-mode: initial;
+      transform: none;
+    }
+  }
+}
+
 .experience {
   margin-top: 10px;
 
@@ -139,18 +166,34 @@ h2 {
 
     .positions {
       flex: 1 1 auto;
+      // display: flex;
+      // flex-flow: column;
+      // gap: 22px;
 
       .title {
         line-height: 1.25;
         margin-bottom: 5px;
         font-size: 11.5pt;
       }
+
+      // Add a dividing line when there are multiple positions
+      .position+.position::before {
+        content: "";
+        background:
+          linear-gradient(to right, white 5%, lightgrey 40% 60%, white 95%);
+        flex: 0 0 100%;
+        height: 1px;
+        margin-top: 20px;
+      }
     }
 
     .position {
       display: flex;
-      flex-flow: row;
+      flex-flow: row wrap;
       gap: 22px;
+
+      // border-bottom: 1px solid lightgrey;
+      // &:last-child {border-bottom: none;}
 
       >.time-ranges {
         display: flex;
@@ -176,6 +219,28 @@ h2 {
           list-style: disc;
           padding-left: 10px;
           margin-left: 10px;
+        }
+      }
+    }
+  }
+
+  &.mode-responsibilities {
+    .company .positions .position .details .product {
+      display: none;
+    }
+  }
+
+  &.mode-positions {
+    .company {
+      @include suppress-vertical-company-layout();
+
+      .positions {
+        display: flex;
+        flex-flow: column;
+        gap: 22px;
+
+        .position .details {
+          display: none;
         }
       }
     }
@@ -325,20 +390,7 @@ h2 {
   }
 }
 
-@mixin suppress-vertical-company-layout {
-  flex-flow: column;
-  border-left: none;
-  gap: 0;
 
-  >.time-ranges {
-    flex-flow: column;
-
-    >.time-range {
-      writing-mode: initial;
-      transform: none;
-    }
-  }
-}
 
 @media only screen and (max-width: 600px) {
 
@@ -358,6 +410,10 @@ h2 {
 
   h3 {
     font-size: 12pt;
+  }
+
+  hc-button-toggle-group {
+    display: none;
   }
 
   .experience .company .positions h4.title {
