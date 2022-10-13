@@ -280,6 +280,8 @@ h2 {
 #training {
   >ul {
     padding: 5px 10px;
+    column-count: 2;
+    column-gap: 25px;
 
     >li {
       padding: 5px;
@@ -350,6 +352,16 @@ h2 {
    */
   .experience .company {
     @include suppress-vertical-company-layout;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+
+  #community,
+  #training {
+    >ul {
+      column-count: 1;
+    }
   }
 }
 
