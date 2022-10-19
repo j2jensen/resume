@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
     this.route.queryParams
       .subscribe(params => {
         this.isPrintable = params["print"] !== undefined;
+        this.mode = params["mode"] === "detailed" ? "detailed" : "one-page";
       })
   }
 }

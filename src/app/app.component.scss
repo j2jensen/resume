@@ -158,6 +158,39 @@ h2 {
       display: none;
     }
   }
+
+  &.mode-detailed {
+    .company {
+      >.time-ranges {
+        flex: 0 0 50px;
+
+        .time-range {
+          writing-mode: vertical-rl;
+          transform: rotate(-180deg);
+          text-align: center;
+        }
+      }
+
+
+      .positions {
+        flex: 1 1 auto;
+        flex-flow: column;
+
+      }
+
+      .position {
+        text-align: left;
+
+        >.time-ranges {
+          flex: 1;
+
+          flex-flow: column;
+
+        }
+      }
+    }
+
+  }
 }
 
 
@@ -260,6 +293,7 @@ h2 {
     padding: 5px;
     font-size: 12pt;
     line-height: 1.5;
+    break-inside: avoid;
   }
 }
 
@@ -370,6 +404,7 @@ h2 {
 
   #experience {
     .experience.mode-detailed {
+      margin-top: -45px;
 
       /* The fancy vertical text looks cool in web mode, but when printing it doesn't
       * have its height calculated correctly, and other sections creep into the bottom
@@ -381,6 +416,7 @@ h2 {
         @include suppress-vertical-company-layout;
 
         padding: 5px;
+
         .details h3,
         .details p {
           font-size: 10pt;
