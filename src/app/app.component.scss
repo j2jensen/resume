@@ -294,7 +294,6 @@ h2 {
 
 .educations {
   display: flex;
-  flex: 1;
 
   .education {
     display: flex;
@@ -406,22 +405,6 @@ h2 {
       right: 15px;
     }
   }
-
-  .sections>div {
-
-    &#education {
-      flex: 2;
-
-      .education {
-        flex-flow: column;
-      }
-    }
-
-    &#languages {
-      flex: 3;
-    }
-  }
-
 
   #experience {
     h2 {
