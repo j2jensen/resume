@@ -187,6 +187,12 @@ h2 {
       }
     }
   }
+
+  &.mode-one-page {
+    .details {
+      display: none;
+    }
+  }
 }
 
 
