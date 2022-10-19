@@ -9,6 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 export class AppComponent implements OnInit {
   title = 'resume-app';
   isPrintable = true;
+  mode: ('detailed' | 'one-page') = "one-page";
 
 
   constructor(private route: ActivatedRoute) { }
