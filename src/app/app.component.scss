@@ -70,53 +70,6 @@ h2 {
   }
 }
 
-.technologies {
-
-  display: flex;
-  flex-flow: row wrap;
-  align-content: space-around;
-
-  >div {
-    flex: 1 1 auto;
-
-    .chips {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-evenly;
-
-      .tag {
-        font-size: 10pt;
-        color: rgb(51, 51, 51);
-        background-color: rgb(230, 230, 230);
-        line-height: 1;
-        margin: 5px;
-        padding: 8px 12px;
-        white-space: nowrap;
-        text-decoration: none;
-        text-align: center;
-        border-width: 1px;
-        border-style: solid;
-        border-radius: 6px;
-        border-color: transparent;
-      }
-
-    }
-  }
-
-  fieldset {
-    margin: 5px;
-    border: 1px solid lightgray;
-    border-radius: 4px;
-
-    legend {
-      font-size: 110%;
-      padding: 3px 5px;
-      margin: 0px 4px;
-    }
-  }
-
-}
-
 .experience {
   margin-top: 10px;
 
