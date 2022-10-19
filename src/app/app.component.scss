@@ -280,18 +280,15 @@ h2 {
   }
 }
 
-#community,
-#training {
-  >ul {
-    padding: 5px 10px;
-    column-count: 2;
-    column-gap: 25px;
+.sections>div>ul {
+  padding: 5px 10px;
+  column-count: 2;
+  column-gap: 25px;
 
-    >li {
-      padding: 5px;
-      font-size: 12pt;
-      line-height: 1.5;
-    }
+  >li {
+    padding: 5px;
+    font-size: 12pt;
+    line-height: 1.5;
   }
 }
 
@@ -322,10 +319,6 @@ h2 {
 .sections {
   display: flex;
   flex-flow: row wrap;
-
-  #experience {
-    order: -1;
-  }
 
   >div {
     flex: 1 auto;
@@ -361,11 +354,8 @@ h2 {
 
 @media only screen and (max-width: 800px) {
 
-  #community,
-  #training {
-    >ul {
-      column-count: 1;
-    }
+  .sections>div>ul {
+    column-count: 1;
   }
 }
 
@@ -467,16 +457,13 @@ h2 {
     }
   }
 
-  #community,
-  #training {
-    >ul {
-      padding: 5px 10px;
+  .sections>div>ul {
+    padding: 5px 10px;
 
-      >li {
-        padding: 5px;
-        font-size: 10pt;
-        line-height: 1.2;
-      }
+    >li {
+      padding: 5px;
+      font-size: 10pt;
+      line-height: 1.2;
     }
   }
 
