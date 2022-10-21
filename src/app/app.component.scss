@@ -182,7 +182,12 @@ h2 {
         text-align: left;
 
         >.time-ranges {
-          flex: 1;
+          flex: 1 1 150px;
+          justify-content: flex-start;
+        }
+
+        >.details {
+          flex: 10 1 300px;
         }
       }
     }
