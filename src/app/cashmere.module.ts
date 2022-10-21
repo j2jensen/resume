@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
-import { TileModule, } from '@healthcatalyst/cashmere';
+import { ButtonModule, TileModule, } from '@healthcatalyst/cashmere';
 
 @NgModule({
-  exports: [TileModule]
+  exports: [TileModule, ButtonModule]
 })
 export class CashmereModule { }

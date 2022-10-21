@@ -173,7 +173,6 @@ h2 {
         }
       }
 
-
       .positions {
         flex: 1 1 auto;
         flex-flow: column;
@@ -256,6 +255,10 @@ h2 {
   padding-top: 10px;
 }
 
+.detail-switcher {
+  text-align: center;
+}
+
 @mixin suppress-vertical-company-layout {
   flex-flow: column;
   border-left: none;
@@ -311,6 +314,10 @@ h2 {
 
   .print-only-flex {
     display: flex;
+  }
+
+  .no-print {
+    display: none !important;
   }
 
   .contact .contact-method.print-only {
