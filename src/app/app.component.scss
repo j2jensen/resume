@@ -22,27 +22,7 @@ h1 {
   margin-bottom: 10px;
 }
 
-.contact {
 
-  // Use the same color even for email links.
-  &,
-  a,
-  a:link,
-  a:visited,
-  a:hover,
-  a:active {
-    color: grey;
-  }
-
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-evenly;
-  margin-top: 12px;
-
-  .contact-method {
-    gap: 8px;
-  }
-}
 
 h2 {
   margin: 12px;
@@ -53,13 +33,41 @@ h2 {
   margin: 8px;
   display: flex;
   flex-flow: column;
+  align-content: stretch;
   align-items: center;
+  gap: 20px;
 
-  >hc-tile {
-    max-width: 1280px;
+  >div {
+    width: 100%;
+    max-width: 1024px;
   }
 
-  >hc-tile.body {
+  .header {
+    .contact {
+
+      // Use the same color even for email links.
+      &,
+      a,
+      a:link,
+      a:visited,
+      a:hover,
+      a:active {
+        color: grey;
+      }
+
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-evenly;
+      margin-top: 12px;
+      gap: 20px;
+
+      .contact-method {
+        gap: 8px;
+      }
+    }
+  }
+
+  .body {
     padding-top: 3px;
   }
 }
@@ -169,7 +177,6 @@ h2 {
       .positions {
         flex: 1 1 auto;
         flex-flow: column;
-
       }
 
       .position {
@@ -177,9 +184,6 @@ h2 {
 
         >.time-ranges {
           flex: 1;
-
-          flex-flow: column;
-
         }
       }
     }
@@ -255,18 +259,19 @@ h2 {
 @mixin suppress-vertical-company-layout {
   flex-flow: column;
   border-left: none;
-  gap: 10px;
+  gap: 20px;
   text-align: center;
 
-  >.positions {
-    gap: 5px;
+  h3 {
+    font-size: 15pt;
+  }
 
-    .position {
-      flex-flow: column;
-    }
+  >.positions {
+    gap: 15px;
 
     .time-ranges {
-      gap: 5px;
+      flex-flow: column;
+      gap: 15px;
     }
   }
 
@@ -341,23 +346,9 @@ h2 {
     margin-bottom: 0;
   }
 
-  hc-tile {
-    margin-bottom: 10px;
-
-    // Less space around cards
-    padding: 15px;
-
-    // If we change the padding on the tile, we also have to move the fluency indicators
-    // to match
-    .language>.level {
-      top: 15px;
-      right: 15px;
-    }
-  }
-
   #experience {
     .experience.mode-detailed {
-      margin-top: -45px;
+      margin-top: -25px;
 
       /* The fancy vertical text looks cool in web mode, but when printing it doesn't
       * have its height calculated correctly, and other sections creep into the bottom
