@@ -255,10 +255,24 @@ h2 {
 @mixin suppress-vertical-company-layout {
   flex-flow: column;
   border-left: none;
-  gap: 0;
+  gap: 10px;
+  text-align: center;
+
+  >.positions {
+    gap: 5px;
+
+    .position {
+      flex-flow: column;
+    }
+
+    .time-ranges {
+      gap: 5px;
+    }
+  }
 
   >.time-ranges {
     flex-flow: column;
+    flex-basis: auto;
 
     >.time-range {
       writing-mode: initial;
@@ -272,7 +286,8 @@ h2 {
   /* The vertical company headers force things to get kind of squishy
    * when the screen is really narrow (like on mobile phones).
    */
-  .experience .company {
+  .experience .company,
+  .experience.mode-detailed .company {
     @include suppress-vertical-company-layout;
   }
 }
