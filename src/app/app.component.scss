@@ -262,7 +262,7 @@ h2 {
 
 .online-callout {
   text-align: center;
-  padding-top: 10px;
+  margin-top: -20px;
 }
 
 .detail-switcher {
@@ -402,8 +402,10 @@ h2 {
     &.skill-details {
 
       >li {
+        font-size: 9pt;
+
         &:nth-child(n+2) {
-          font-size: 7pt;
+          font-size: 6.5pt;
         }
 
         &:nth-child(n+3) {
