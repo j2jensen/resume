@@ -9,7 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class AppComponent implements OnInit {
   title = 'resume-app';
   isPrintable = true;
-  mode: ('detailed' | 'one-page') = "one-page";
+  mode: ('detailed' | 'one-page') = "detailed";
 
 
   constructor(private route: ActivatedRoute,
@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
     this.route.queryParams
       .subscribe(params => {
         this.isPrintable = params["print"] !== undefined;
-        this.mode = params["mode"] === "detailed" ? "detailed" : "one-page";
+        this.mode = params["mode"] === "one-page" ? "one-page" : "detailed";
       })
   }
 
