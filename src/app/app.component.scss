@@ -255,6 +255,10 @@ h2 {
   }
 }
 
+.sections>div>ul.skill-details {
+  column-count: auto;
+}
+
 .online-callout {
   text-align: center;
   padding-top: 10px;
@@ -382,17 +386,6 @@ h2 {
 
   }
 
-  .technologies {
-    font-size: 9pt;
-
-    >div .chips .tag {
-      border-color: gray;
-      font-size: 9pt;
-      padding: 4px 6px;
-      margin: 3px;
-    }
-  }
-
   .sections>div>ul {
     padding: 5px 10px;
 
@@ -401,10 +394,21 @@ h2 {
       font-size: 10pt;
       line-height: 1.2;
     }
-  }
 
-  .awards>hc-tile {
-    min-width: 200px;
+    &.skill-details {
+
+      >li {
+        &:nth-child(n+2) {
+          font-size: 7pt;
+        }
+
+        &:nth-child(n+3) {
+          color: white;
+          font-size: 2pt;
+          padding: 0;
+        }
+      }
+    }
   }
 
 }
