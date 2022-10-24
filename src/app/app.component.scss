@@ -126,11 +126,18 @@ h2 {
         flex: 0 1 auto;
 
         display: flex;
-        gap: 22px;
+        gap: 2px;
         flex-flow: row wrap;
         justify-content: center;
 
+        >.in-place-promotion {
+          text-align: center;
+          flex: 1;
+          color: silver;
+        }
+
         >.time-range {
+          flex: 1 1 100%;
           >span {
             line-height: 1.3;
           }
@@ -284,11 +291,6 @@ h2 {
 
   >.positions {
     gap: 15px;
-
-    .time-ranges {
-      flex-flow: column;
-      gap: 15px;
-    }
   }
 
   >.time-ranges {
