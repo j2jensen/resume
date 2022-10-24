@@ -18,33 +18,11 @@
   }
 }
 
-.contact {
-
-  // Use the same color even for email links.
-  &,
-  a,
-  a:link,
-  a:visited,
-  a:hover,
-  a:active {
-    color: grey;
-  }
-
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-evenly;
-  margin-top: 12px;
-
-  .contact-method {
-    display: flex;
-    gap: 8px;
-
-    // Hide resume and linkedin links unless printing.
-    &.print-only {
-      display: none;
-    }
-  }
+h1 {
+  margin-bottom: 10px;
 }
+
+
 
 h2 {
   margin: 12px;
@@ -55,62 +33,43 @@ h2 {
   margin: 8px;
   display: flex;
   flex-flow: column;
+  align-content: stretch;
   align-items: center;
-
-  >hc-tile {
-    max-width: 1280px;
-  }
-
-  >hc-tile.body {
-    padding-top: 3px;
-  }
-}
-
-.technologies {
-
-  display: flex;
-  flex-flow: row wrap;
-  align-content: space-around;
+  gap: 15px;
 
   >div {
-    flex: 1 1 auto;
+    width: 100%;
+    max-width: 1024px;
+  }
 
-    .chips {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-evenly;
+  .header {
+    .contact {
 
-      .tag {
-        font-size: 10pt;
-        color: rgb(51, 51, 51);
-        background-color: rgb(230, 230, 230);
-        line-height: 1;
-        margin: 5px;
-        padding: 8px 12px;
-        white-space: nowrap;
-        text-decoration: none;
-        text-align: center;
-        border-width: 1px;
-        border-style: solid;
-        border-radius: 6px;
-        border-color: transparent;
+      // Use the same color even for email links.
+      &,
+      a,
+      a:link,
+      a:visited,
+      a:hover,
+      a:active {
+        color: grey;
       }
 
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-evenly;
+      margin-top: 12px;
+      gap: 20px;
+
+      .contact-method {
+        gap: 8px;
+      }
     }
   }
 
-  fieldset {
-    margin: 5px;
-    border: 1px solid lightgray;
-    border-radius: 4px;
-
-    legend {
-      font-size: 110%;
-      padding: 3px 5px;
-      margin: 0px 4px;
-    }
+  .body {
+    padding-top: 3px;
   }
-
 }
 
 .experience {
@@ -128,20 +87,23 @@ h2 {
     padding: 10px;
 
     >.time-ranges {
+      flex: 0 0 150px;
+
       display: flex;
       flex-flow: row;
-      flex: 0 0 50px;
+      align-items: center;
 
       >.time-range {
         margin: 5px;
-        writing-mode: vertical-rl;
-        transform: rotate(-180deg);
-        text-align: center;
       }
     }
 
     .positions {
-      flex: 1 1 auto;
+      flex: 3 0;
+
+      display: flex;
+      flex-flow: row wrap;
+      gap: 22px;
 
       .title {
         line-height: 1.25;
@@ -151,18 +113,27 @@ h2 {
     }
 
     .position {
+      flex: 1 1 auto;
+
       display: flex;
-      flex-flow: row;
+      flex-flow: row wrap;
       gap: 22px;
+      justify-content: center;
+
+      text-align: center;
 
       >.time-ranges {
-        display: flex;
-        flex-flow: column;
-        gap: 22px;
-        flex: 1;
+        flex: 0 1 auto;
 
-        >.time-range>span {
-          line-height: 1.3;
+        display: flex;
+        gap: 22px;
+        flex-flow: row wrap;
+        justify-content: center;
+
+        >.time-range {
+          >span {
+            line-height: 1.3;
+          }
         }
       }
 
@@ -182,6 +153,46 @@ h2 {
         }
       }
     }
+  }
+
+  &.mode-one-page {
+    .details {
+      display: none;
+    }
+  }
+
+  &.mode-detailed {
+    .company {
+      >.time-ranges {
+        flex: 0 0 50px;
+
+        .time-range {
+          writing-mode: vertical-rl;
+          transform: rotate(-180deg);
+          text-align: center;
+        }
+      }
+
+      .positions {
+        flex: 1 1 auto;
+        flex-flow: column;
+      }
+
+      .position {
+        text-align: left;
+
+        >.time-ranges {
+          flex: 1 1 150px;
+          justify-content: flex-start;
+          align-content: baseline;
+        }
+
+        >.details {
+          flex: 10 1 300px;
+        }
+      }
+    }
+
   }
 }
 
@@ -207,95 +218,25 @@ h2 {
   }
 }
 
-.awards {
-  display: flex;
-  flex-flow: row;
-  flex-wrap: wrap;
+.sections>div>ul {
+  padding: 5px 10px;
+  column-count: 2;
+  column-gap: 25px;
 
-  >hc-tile {
-    position: relative;
-    flex: 2 1;
-    min-width: 300px;
-    margin: 10px;
-
-    .time {
-      width: 75px;
-      height: 75px;
-      overflow: hidden;
-      position: absolute;
-
-      top: -5px;
-      right: -5px;
-
-      &::before,
-      &::after {
-        position: absolute;
-        content: '';
-        display: block;
-        border: 2.5px solid #2980b9;
-
-        border-top-color: transparent;
-        border-right-color: transparent;
-      }
-
-      &::before {
-        top: 0;
-        left: 14px;
-      }
-
-      &::after {
-        bottom: 14.5px;
-        right: 0;
-      }
-
-      >span {
-        cursor: default;
-        position: absolute;
-        display: block;
-        width: 85px;
-        padding: 5px 0;
-        background-color: #3498db;
-        box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
-        color: #fff;
-        font-weight: 600;
-        text-shadow: 0 1px 1px rgba(0, 0, 0, .2);
-        text-align: center;
-
-        left: 10px;
-        top: 10px;
-        transform: rotate(45deg);
-      }
-    }
-  }
-
-}
-
-.group-title {
-  &::after {
-    content: ": "
-  }
-}
-
-#community,
-#training {
-  >ul {
-    padding: 5px 10px;
-    column-count: 2;
-    column-gap: 25px;
-
-    >li {
-      padding: 5px;
-      font-size: 12pt;
-      line-height: 1.5;
-    }
+  >li {
+    padding: 5px;
+    font-size: 12pt;
+    line-height: 1.5;
+    break-inside: avoid;
   }
 }
 
 .educations {
   display: flex;
-  flex: 1;
 
   .education {
+    flex: 1;
+
     display: flex;
     flex-flow: row wrap;
     gap: 20px;
@@ -315,28 +256,44 @@ h2 {
   }
 }
 
-.sections {
-  display: flex;
-  flex-flow: row wrap;
+.sections>div>ul.skill-details {
+  column-count: auto;
+}
 
-  #experience {
-    order: -1;
-  }
+.online-callout {
+  text-align: center;
+  margin-top: -20px;
+}
 
-  >div {
-    flex: 1 auto;
-    display: flex;
-    flex-flow: column;
-  }
+.detail-switcher {
+  // I'm thinking I don't want one-page mode anymore,
+  // but I'm not ready to remove all the code for it yet.
+  display: none;
+  text-align: center;
 }
 
 @mixin suppress-vertical-company-layout {
   flex-flow: column;
   border-left: none;
-  gap: 0;
+  gap: 20px;
+  text-align: center;
+
+  h3 {
+    font-size: 15pt;
+  }
+
+  >.positions {
+    gap: 15px;
+
+    .time-ranges {
+      flex-flow: column;
+      gap: 15px;
+    }
+  }
 
   >.time-ranges {
     flex-flow: column;
+    flex-basis: auto;
 
     >.time-range {
       writing-mode: initial;
@@ -350,22 +307,32 @@ h2 {
   /* The vertical company headers force things to get kind of squishy
    * when the screen is really narrow (like on mobile phones).
    */
-  .experience .company {
+  .experience .company,
+  .experience.mode-detailed .company {
     @include suppress-vertical-company-layout;
   }
 }
 
 @media only screen and (max-width: 800px) {
 
-  #community,
-  #training {
-    >ul {
-      column-count: 1;
-    }
+  .sections>div>ul {
+    column-count: 1;
   }
 }
 
 @mixin printable {
+  .print-only-block {
+    display: block;
+  }
+
+  .print-only-flex {
+    display: flex;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
   .contact .contact-method.print-only {
     display: flex;
   }
@@ -399,87 +366,66 @@ h2 {
     margin-bottom: 0;
   }
 
-  hc-tile {
-    margin-bottom: 10px;
-
-    // Less space around cards
-    padding: 15px;
-
-    // If we change the padding on the tile, we also have to move the fluency indicators
-    // to match
-    .language>.level {
-      top: 15px;
-      right: 15px;
-    }
-  }
-
-  .sections>div {
-
-    &#education {
-      flex: 2;
-
-      .education {
-        flex-flow: column;
-      }
-    }
-
-    &#languages {
-      flex: 3;
-    }
-  }
-
-
   #experience {
-    h2 {
-      margin-bottom: -45px;
-    }
+    .experience.mode-detailed {
+      margin-top: -25px;
 
-    /* The fancy vertical text looks cool in web mode, but when printing it doesn't
-    * have its height calculated correctly, and other sections creep into the bottom
-    * of the experiences section.
-    * I'll have to make the company headers show up in a more boring way to make
-    * printing look nice.
-    */
-    .company {
-      @include suppress-vertical-company-layout;
+      /* The fancy vertical text looks cool in web mode, but when printing it doesn't
+      * have its height calculated correctly, and other sections creep into the bottom
+      * of the experiences section.
+      * I'll have to make the company headers show up in a more boring way to make
+      * printing look nice.
+      */
+      .company {
+        @include suppress-vertical-company-layout;
 
-      padding: 5px;
+        padding: 5px;
 
-      .details h3,
-      .details p {
-        font-size: 10pt;
+        .details h3,
+        .details p {
+          font-size: 10pt;
+        }
       }
     }
+
   }
 
-  .technologies {
-    font-size: 9pt;
+  .sections>div>ul {
+    padding: 5px 10px;
 
-    >div .chips .tag {
-      border-color: gray;
-      font-size: 9pt;
-      padding: 4px 6px;
-      margin: 3px;
+    >li {
+      padding: 5px;
+      font-size: 10pt;
+      line-height: 1.2;
     }
-  }
 
-  #community,
-  #training {
-    >ul {
-      padding: 5px 10px;
+    &.skill-details {
 
       >li {
-        padding: 5px;
-        font-size: 10pt;
-        line-height: 1.2;
+        font-size: 9pt;
+
+        &:nth-child(n+2) {
+          font-size: 6.5pt;
+        }
+
+        &:nth-child(n+3) {
+          color: white;
+          font-size: 2pt;
+          padding: 0;
+        }
       }
     }
   }
 
-  .awards>hc-tile {
-    min-width: 200px;
-  }
+}
 
+.print-only-block,
+.print-only-flex {
+  display: none;
+}
+
+.flex {
+  display: flex;
 }
 
 // This just makes it easier for me to debug print mode by adding a query param.
