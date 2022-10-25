@@ -348,15 +348,6 @@ h2 {
     font-size: 12pt;
   }
 
-  // Links don't work on printed paper. No point highlighting them.
-  a,
-  a:link,
-  a:visited,
-  a:hover,
-  a:active {
-    color: inherit;
-  }
-
   .experience .company .positions h4.title {
     font-size: 11pt;
   }
