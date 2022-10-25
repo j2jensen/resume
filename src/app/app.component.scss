@@ -25,8 +25,7 @@ h1 {
 
 
 h2 {
-  margin: 12px;
-  margin-bottom: 0;
+  margin: 6px 12px;
 }
 
 .container {
@@ -70,6 +69,52 @@ h2 {
   .body {
     padding-top: 3px;
   }
+}
+
+.mode-one-page {
+  .skill-details {
+    li:nth-child(n + 2) {
+      display: none;
+    }
+  }
+
+  .experience .details {
+    display: none;
+  }
+}
+
+.mode-detailed {
+  .experience .company {
+    >.time-ranges {
+      flex: 0 0 50px;
+
+      .time-range {
+        writing-mode: vertical-rl;
+        transform: rotate(-180deg);
+        text-align: center;
+      }
+    }
+
+    .positions {
+      flex: 1 1 auto;
+      flex-flow: column;
+    }
+
+    .position {
+      text-align: left;
+
+      >.time-ranges {
+        flex: 1 1 150px;
+        justify-content: flex-start;
+        align-content: baseline;
+      }
+
+      >.details {
+        flex: 10 1 300px;
+      }
+    }
+  }
+
 }
 
 .experience {
@@ -155,45 +200,7 @@ h2 {
     }
   }
 
-  &.mode-one-page {
-    .details {
-      display: none;
-    }
-  }
 
-  &.mode-detailed {
-    .company {
-      >.time-ranges {
-        flex: 0 0 50px;
-
-        .time-range {
-          writing-mode: vertical-rl;
-          transform: rotate(-180deg);
-          text-align: center;
-        }
-      }
-
-      .positions {
-        flex: 1 1 auto;
-        flex-flow: column;
-      }
-
-      .position {
-        text-align: left;
-
-        >.time-ranges {
-          flex: 1 1 150px;
-          justify-content: flex-start;
-          align-content: baseline;
-        }
-
-        >.details {
-          flex: 10 1 300px;
-        }
-      }
-    }
-
-  }
 }
 
 
@@ -219,7 +226,7 @@ h2 {
 }
 
 .sections>div>ul {
-  padding: 5px 10px;
+  padding: 0 10px;
   column-count: 2;
   column-gap: 25px;
 
@@ -262,7 +269,6 @@ h2 {
 
 .online-callout {
   text-align: center;
-  margin-top: -20px;
 }
 
 .detail-switcher {
@@ -391,10 +397,8 @@ h2 {
   }
 
   .sections>div>ul {
-    padding: 5px 10px;
-
     >li {
-      padding: 5px;
+      padding: 3px;
       font-size: 10pt;
       line-height: 1.2;
     }
