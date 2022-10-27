@@ -398,10 +398,14 @@ h2 {
           font-size: 7.5pt;
         }
 
+        // Leave these here to match keyword filters, but don't print them.
         &:nth-child(n+3) {
           color: white;
           font-size: 2pt;
           padding: 0;
+
+          // Don't let the browser change the font color to make the text visible.
+          print-color-adjust: exact;
         }
       }
     }
