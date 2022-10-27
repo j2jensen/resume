@@ -71,15 +71,34 @@ h2 {
   }
 }
 
-.mode-one-page {
-  .skill-details {
+// There's some text we want to leave these here to match keyword filters
+// in a PDF resume, but we don't want to have appear visually.
+@mixin print-hidden-text {
+  color: white;
+  font-size: 1px;
+  padding: 0;
+
+  // Don't let the browser change the font color to make the text visible.
+  print-color-adjust: exact;
+}
+
+
+.mode-one-page, .printable .mode-one-page {
+  .sections .skill-details {
     li:nth-child(n + 2) {
-      display: none;
+      @include print-hidden-text();
     }
   }
 
-  .experience .details {
-    display: none;
+  .experience .company .position {
+    flex-flow: column;
+    gap: 0;
+
+    .details {
+      * {
+        @include print-hidden-text();
+      }
+    }
   }
 }
 
@@ -400,12 +419,7 @@ h2 {
 
         // Leave these here to match keyword filters, but don't print them.
         &:nth-child(n+3) {
-          color: white;
-          font-size: 2pt;
-          padding: 0;
-
-          // Don't let the browser change the font color to make the text visible.
-          print-color-adjust: exact;
+          @include print-hidden-text();
         }
       }
     }
