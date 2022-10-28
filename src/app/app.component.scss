@@ -83,7 +83,8 @@ h2 {
 }
 
 
-.mode-one-page, .printable .mode-one-page {
+.mode-one-page,
+.printable .mode-one-page {
   .sections .skill-details {
     li:nth-child(n + 2) {
       @include print-hidden-text();
@@ -214,6 +215,7 @@ h2 {
           list-style: disc;
           padding-left: 10px;
           margin-left: 10px;
+          margin-bottom: 10px;
         }
       }
     }
@@ -379,27 +381,31 @@ h2 {
     margin-bottom: 0;
   }
 
-  #experience {
-    .experience.mode-detailed {
-      margin-top: -25px;
+  .body.mode-detailed .experience {
 
-      /* The fancy vertical text looks cool in web mode, but when printing it doesn't
+    margin-top: -25px;
+
+    /* The fancy vertical text looks cool in web mode, but when printing it doesn't
       * have its height calculated correctly, and other sections creep into the bottom
       * of the experiences section.
       * I'll have to make the company headers show up in a more boring way to make
       * printing look nice.
       */
-      .company {
-        @include suppress-vertical-company-layout;
+    .company {
+      @include suppress-vertical-company-layout;
 
-        padding: 5px;
+      padding: 5px;
 
-        .details h3,
-        .details p {
-          font-size: 10pt;
+      .details h3,
+      .details p {
+        font-size: 10pt;
+
+        &.position-technologies {
+          @include print-hidden-text();
         }
       }
     }
+
 
   }
 
