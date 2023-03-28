@@ -332,7 +332,7 @@ h2 {
    * when the screen is really narrow (like on mobile phones).
    */
   .experience .company,
-  .experience.mode-detailed .company {
+  .mode-detailed .experience .company {
     @include suppress-vertical-company-layout;
   }
 }
