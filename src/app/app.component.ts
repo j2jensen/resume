@@ -10,12 +10,14 @@ export class AppComponent implements OnInit {
   title = 'resume-app';
   isPrintable = true;
   mode: ('detailed' | 'one-page') = "detailed";
-
+  yearsOfExperience: string = "";
 
   constructor(private route: ActivatedRoute,
     private router: Router) { }
 
   ngOnInit(): void {
+    this.yearsOfExperience = this.getApproximateYearsBetween(new Date(2007, 10, 1), new Date()) + "+";
+
     this.route.queryParams
       .subscribe(params => {
         this.isPrintable = params["print"] !== undefined;
@@ -29,5 +31,10 @@ export class AppComponent implements OnInit {
       queryParams: { mode: newMode },
       queryParamsHandling: "merge"
     });
+  }
+
+  getApproximateYearsBetween(start: Date, end: Date) {
+    const yearsBetweenYears = end.getFullYear() - start.getFullYear();
+    return yearsBetweenYears + (start.getMonth() < end.getMonth() ? 0 : -1);
   }
 }

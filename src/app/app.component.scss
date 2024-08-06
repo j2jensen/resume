@@ -91,13 +91,34 @@ h2 {
     }
   }
 
-  .experience .company .position {
-    flex-flow: column;
-    gap: 0;
+  .experience .company {
+    padding: 0 10px;
 
-    .details {
-      * {
-        @include print-hidden-text();
+    .positions {
+      gap: 0;
+
+      .position {
+        flex-flow: column;
+        gap: 0;
+
+        .time-ranges {
+          gap: 0 20px;
+
+          .time-range {
+            padding: 5px 10px;
+          }
+        }
+
+        .details {
+          display: flex;
+          margin: 0;
+
+          * {
+            @include print-hidden-text();
+            display: flex;
+            margin: 0;
+          }
+        }
       }
     }
   }
