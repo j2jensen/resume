@@ -1,23 +1,54 @@
 # Resume App
 
-A web app resume to replace the word doc I've been using most of my career.
+A modern, responsive resume application built with Angular and Tailwind CSS.
 
-See the live product at https://j2jensen.github.io/resume/
+## Features
 
-HTML and CSS give me more freedom in formatting and styles, and as a web app it's easy for people to see right from the Internet. Plus, it gives me a chance to practice programming and setting up continuous deployment.
+- **Modern Design**: Clean, professional layout using Tailwind CSS
+- **Responsive**: Works perfectly on desktop, tablet, and mobile devices
+- **Print-Friendly**: Optimized for printing with proper page breaks and formatting
+- **Two View Modes**: 
+  - One-page view for quick overview
+  - Detailed view with comprehensive information
+- **Interactive Elements**: Smooth transitions and hover effects
+- **Social Integration**: Links to professional profiles (LinkedIn, GitHub, Stack Overflow)
 
-## Development
+## Technology Stack
 
-The scaffolding was generated with [Angular CLI](https://github.com/angular/angular-cli).
+- **Angular 15**: Modern frontend framework
+- **Tailwind CSS**: Utility-first CSS framework for rapid UI development
+- **Font Awesome**: Icon library for professional icons
+- **Noto Sans**: Clean, readable typography
 
-Some of my baseline styles and components come from the [Cashmere library](https://cashmere.healthcatalyst.net/web/components).
+## Getting Started
 
-Feel free to clone the repo and poke around. `ng serve --open` will build the app and open it in a live web browser session, where the application will automatically reload if you change any of the source files.
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-## CI/CD
+2. Start the development server:
+   ```bash
+   npm start
+   ```
 
-I'm using github workflows to automatically build and deploy the app whenever a change is made to the `main` branch.
+3. Open your browser and navigate to `http://localhost:4200`
 
-## Project Status
+## Build for Production
 
-For this small project, I have prioritized simplicity and pragmatism. The code isn't perfectly DRY. I haven't separated code out into components. I haven't separated the data into a separate YAML file. Even though I'm using Angular, there's nothing interactive about this app. And I haven't written unit tests. Try not to be too judgy. 😉
+```bash
+npm run build-prod
+```
+
+## Recent Modernization Updates
+
+- Replaced Health Catalyst Cashmere with Tailwind CSS for modern styling
+- Implemented responsive card-based layout
+- Added smooth transitions and hover effects
+- Improved typography and spacing
+- Enhanced print styling
+- Modernized color scheme and visual hierarchy
+
+## Customization
+
+The resume content can be easily customized by editing the `app.component.html` file. The styling is handled through Tailwind CSS classes and custom CSS components defined in `styles.scss`.

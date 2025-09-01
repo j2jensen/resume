@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { CashmereModule } from './cashmere.module';
 
 @NgModule({
   declarations: [
@@ -11,7 +10,6 @@ import { CashmereModule } from './cashmere.module';
   ],
   imports: [
     BrowserModule,
-    CashmereModule,
     RouterModule.forRoot([])
   ],
   providers: [],

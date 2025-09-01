@@ -1,5 +1,180 @@
-@import "@healthcatalyst/cashmere/scss/cashmere";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-body {
-  margin: 0px;
+@import 'notosans-fontface/css/notosans-fontface.css';
+@import 'font-awesome/css/font-awesome.css';
+
+// Custom resume styles that work with Tailwind
+@layer components {
+  .resume-container {
+    @apply max-w-4xl mx-auto px-4 py-8;
+  }
+  
+  .resume-header {
+    @apply text-center mb-8;
+  }
+  
+  .resume-title {
+    @apply text-3xl font-bold text-gray-800 mb-2;
+  }
+  
+  .resume-subtitle {
+    @apply text-lg text-gray-600 mb-6;
+  }
+  
+  .contact-grid {
+    @apply flex flex-wrap justify-center gap-6 mb-8;
+  }
+  
+  .contact-item {
+    @apply flex items-center gap-2 text-gray-600 hover:text-gray-800 transition-colors;
+  }
+  
+  .section-title {
+    @apply text-xl font-semibold text-gray-800 mb-4 border-b-2 border-gray-200 pb-2;
+  }
+  
+  .skill-summary {
+    @apply bg-gray-50 rounded-lg p-6 mb-8;
+  }
+  
+  .skill-summary ul {
+    @apply space-y-2 text-gray-700;
+  }
+  
+  .skill-details {
+    @apply space-y-4 mb-8;
+  }
+  
+  .skill-category {
+    @apply bg-white rounded-lg p-4 shadow-sm border border-gray-200;
+  }
+  
+  .skill-category strong {
+    @apply text-gray-800 font-semibold;
+  }
+  
+  .experience-item {
+    @apply bg-white rounded-lg p-6 shadow-sm border border-gray-200 mb-6 hover:shadow-md transition-shadow;
+  }
+  
+  .company-header {
+    @apply flex items-center justify-between mb-4;
+  }
+  
+  .company-name {
+    @apply text-lg font-semibold text-gray-800;
+  }
+  
+  .company-dates {
+    @apply text-sm text-gray-600;
+  }
+  
+  .position-item {
+    @apply mb-4 last:mb-0;
+  }
+  
+  .position-title {
+    @apply text-base font-medium text-gray-700 mb-1;
+  }
+  
+  .position-dates {
+    @apply text-sm text-gray-500 mb-2;
+  }
+  
+  .position-description {
+    @apply text-gray-700 mb-3;
+  }
+  
+  .position-accomplishments {
+    @apply list-disc list-inside space-y-1 text-gray-700 mb-3;
+  }
+  
+  .position-technologies {
+    @apply text-sm text-gray-600 bg-gray-50 rounded px-3 py-2;
+  }
+  
+  .education-item {
+    @apply flex items-center gap-4 bg-white rounded-lg p-4 shadow-sm border border-gray-200;
+  }
+  
+  .education-logo {
+    @apply w-16 h-16 flex-shrink-0;
+  }
+  
+  .education-info h3 {
+    @apply text-lg font-semibold text-gray-800;
+  }
+  
+  .education-info h4 {
+    @apply text-gray-600;
+  }
+  
+  .mode-switcher {
+    @apply text-center mb-6;
+  }
+  
+  .mode-button {
+    @apply text-blue-600 hover:text-blue-800 underline bg-transparent border-none cursor-pointer;
+  }
+  
+  .print-only {
+    @apply hidden;
+  }
+  
+  @media print {
+    .print-only {
+      @apply block;
+    }
+    
+    .no-print {
+      @apply hidden;
+    }
+    
+    .resume-container {
+      @apply max-w-none px-0 py-0;
+    }
+    
+    .experience-item,
+    .skill-category,
+    .education-item {
+      @apply shadow-none border-gray-300;
+    }
+  }
+}
+
+// Print-specific styles
+@media print {
+  .top-ribbon {
+    display: none;
+  }
+  
+  .mode-switcher {
+    display: none;
+  }
+  
+  .resume-container {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .section-title {
+    font-size: 14pt;
+  }
+  
+  .company-name {
+    font-size: 12pt;
+  }
+  
+  .position-title {
+    font-size: 11pt;
+  }
+  
+  .skill-summary ul li,
+  .position-description,
+  .position-accomplishments li {
+    font-size: 10pt;
+    line-height: 1.2;
+  }
 }

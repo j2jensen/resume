@@ -1,60 +1,85 @@
-<div class="resume" [ngClass]="{'printable': isPrintable}">
+<div class="min-h-screen bg-gray-50" [ngClass]="{'printable': isPrintable, 'mode-detailed': mode === 'detailed', 'mode-one-page': mode === 'one-page'}">
+  <!-- Top Ribbon with Social Links -->
   <div class="top-ribbon">
-    <a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/users/120955/striplingwarrior">
+    <a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/users/120955/striplingwarrior" 
+       class="hover:opacity-80 transition-opacity">
       <img class="stack-overflow-image" src="https://stackoverflow.com/users/flair/120955.png"
         alt="profile for StriplingWarrior at Stack Overflow, Q&amp;A for professional and enthusiast programmers"
         title="profile for StriplingWarrior at Stack Overflow, Q&amp;A for professional and enthusiast programmers">
     </a>
-    <a target="_blank" rel="noopener noreferrer" href="https://www.codementor.io/@j2jensen?refer=badge">
-      <img src="https://www.codementor.io/m-badges/j2jensen/im-a-cm-g.svg" alt="Codementor badge">
+    <a target="_blank" rel="noopener noreferrer" href="https://www.codementor.io/@j2jensen?refer=badge"
+       class="hover:opacity-80 transition-opacity">
+      <img src="https://www.codementor.io/m-badges/j2jensen/im-a-cm-g.svg" alt="Codementor badge" class="h-12">
     </a>
     <a title="See my LinkedIn profile" target="_blank" rel="noopener noreferrer"
-      href="https://www.linkedin.com/in/j2jensen/">
-      <i class="fa fa-linkedin" aria-hidden="true"></i>
+      href="https://www.linkedin.com/in/j2jensen/"
+      class="text-gray-300 hover:text-white transition-colors">
+      <i class="fa fa-linkedin text-3xl" aria-hidden="true"></i>
     </a>
     <a title="See this project's code on Github" target="_blank" rel="noopener noreferrer"
-      href="https://github.com/j2jensen/resume">
-      <i class="fa fa-github" aria-hidden="true"></i>
+      href="https://github.com/j2jensen/resume"
+      class="text-gray-300 hover:text-white transition-colors">
+      <i class="fa fa-github text-3xl" aria-hidden="true"></i>
     </a>
   </div>
+
+  <!-- Main Resume Content -->
   <div class="container">
+    <!-- Header Section -->
     <div class="header">
-      <div hcTileHeader type="center">
-        <h1>James K. Jensen</h1>
-        <p>A talented software engineering leader with {{yearsOfExperience}} years of professional experience</p>
-      </div>
-      <div class="contact">
-        <a target="_blank" rel="noopener noreferrer" href="https://j2jensen.github.io/resume">
-          <div class="contact-method print-only-flex">
+      <div class="text-center mb-8">
+        <h1 class="text-3xl font-bold text-gray-800 mb-2">James K. Jensen</h1>
+        <p class="text-lg text-gray-600 mb-6">A talented software engineering leader with {{yearsOfExperience}} years of professional experience</p>
+        
+        <!-- Contact Information -->
+        <div class="contact">
+          <a target="_blank" rel="noopener noreferrer" href="https://j2jensen.github.io/resume" class="contact-method print-only">
             <i class="fa fa-globe" aria-hidden="true"></i>
             <span class="method-value">j2jensen.github.io/resume</span>
-          </div>
-        </a>
-        <a href="mailto:James Jensen &lt;j2jensen@gmail.com&gt;">
-          <div class="contact-method flex" title="Email">
+          </a>
+          <a href="mailto:James Jensen &lt;j2jensen@gmail.com&gt;" class="contact-method">
             <i class="fa fa-envelope" aria-hidden="true"></i>
             <span class="method-value">j2jensen@gmail.com</span>
-          </div>
-        </a>
-        <a target="_blank" rel="noopener noreferrer" href="https://linkedin.com/in/j2jensen">
-          <div class="contact-method print-only-flex">
+          </a>
+          <a target="_blank" rel="noopener noreferrer" href="https://linkedin.com/in/j2jensen" class="contact-method print-only">
             <i class="fa fa-linkedin" aria-hidden="true"></i>
             <span class="method-value">linkedin.com/in/j2jensen</span>
-          </div>
-        </a>
+          </a>
+        </div>
       </div>
     </div>
-    <div class="body" [ngClass]="'mode-' + mode">
+
+    <!-- Mode Switcher -->
+    <div class="detail-switcher no-print">
+      <p *ngIf="mode === 'detailed'">
+        Too much text? Try the 
+        <button class="text-blue-600 hover:text-blue-800 underline bg-transparent border-none cursor-pointer" (click)="setMode('one-page')">one-page view</button>
+      </p>
+      <p *ngIf="mode !== 'detailed'">
+        Want more details? Try the 
+        <button class="text-blue-600 hover:text-blue-800 underline bg-transparent border-none cursor-pointer" (click)="setMode('detailed')">detailed view</button>
+      </p>
+    </div>
+
+    <!-- Online Callout -->
+    <div class="online-callout print-only">
+      <p>For more details, see the online version of this résumé at
+        <a target="_blank" rel="noopener noreferrer" href="https://j2jensen.github.io/resume" 
+           class="text-blue-600 hover:text-blue-800">j2jensen.github.io/resume</a>
+      </p>
+    </div>
+
+    <!-- Body Content -->
+    <div class="body">
       <div class="sections">
-        <div id="skill-summary">
-          <ul class="skill-summary">
+        <!-- Skill Summary -->
+        <div class="skill-summary bg-gray-50 rounded-lg p-6 mb-8">
+          <ul class="space-y-2 text-gray-700">
             <li>Specializes in modern, full-stack web application development</li>
             <li>Learns new languages, frameworks, and patterns quickly</li>
             <li>Has earned 150k+ reputation on
-              <a target="_blank" rel="noopener noreferrer"
-                href="https://stackoverflow.com/users/120955/striplingwarrior">
-                stackoverflow.com
-              </a>
+              <a target="_blank" rel="noopener noreferrer" href="https://stackoverflow.com/users/120955/striplingwarrior"
+                 class="text-blue-600 hover:text-blue-800">stackoverflow.com</a>
             </li>
             <li>Loves mentoring, code pairing, code reviews, and promoting best-practices</li>
             <li>Removes unnecessary complexity</li>
@@ -65,378 +90,303 @@
             <li>Develops meaningful relationships with teammates</li>
           </ul>
         </div>
-        <div id="skill-details">
-          <h2>Skills</h2>
-          <div class="detail-switcher no-print">
-            <p *ngIf="mode === 'detailed'">Too much text? Try the
-              <button hc-button buttonStyle="link-inline" (click)="setMode('one-page')">
-                one-page view
-              </button>
-            </p>
-          </div>
-          <ul class="skill-details">
-            <li>
+
+        <!-- Skills Section -->
+        <div class="mb-8">
+          <h2 class="section-title text-xl font-semibold text-gray-800 mb-4 border-b-2 border-gray-200 pb-2">Skills</h2>
+          <div class="skill-details space-y-4 mb-8" [ngClass]="{'hidden': mode !== 'detailed'}">
+            <div class="skill-category bg-white rounded-lg p-4 shadow-sm border border-gray-200">
               <strong>Proficient in:</strong>
-              C#, .NET,
-              Agile methodologies,
-              REST APIs, ASP.NET Web API,
-              Typescript, JavaScript/ECMAScript,
-              Angular,
-              SQL,
-              Entity Framework,
-              git,
-              Pull Requests,
-              DevOps,
-              Jira, Azure DevOps,
-              French (fluent),
-              Visual Studio, Visual Studio Code,
-              Unit Testing, Integration Testing,
-              Mixed Martial Arts (4th degree black belt),
-              Fail-fast, SOLID,
-              Slack, Outlook, Microsoft Teams, Microsoft Office
-            </li>
-            <li>
+              C#, .NET, Agile methodologies, REST APIs, ASP.NET Web API, Typescript, JavaScript/ECMAScript,
+              Angular, SQL, Entity Framework, git, Pull Requests, DevOps, Jira, Azure DevOps, French (fluent),
+              Visual Studio, Visual Studio Code, Unit Testing, Integration Testing, Mixed Martial Arts (4th degree black belt),
+              Fail-fast, SOLID, Slack, Outlook, Microsoft Teams, Microsoft Office
+            </div>
+            <div class="skill-category bg-white rounded-lg p-4 shadow-sm border border-gray-200">
               <strong>Experienced with:</strong>
-              Kanban, Agile Scrum,
-              Kafka, Confluent Cloud, Confluent Schema Registry, Avro
-              ASP.NET Web API, ASP.NET MVC, LINQPad
-              Azure, Azure Functions, Durable Functions, Durable Orchestrations, Message Bus, Message Queues, Azure Data
-              Lake Storage (ADLS), Azure Entra ID,
-              SQL Server, T-SQL, Object-Relational Mappers (ORM), Entity Framework, LINQ
-              NodeJS, npm,
-              REST, Swagger,
-              Single-page Web Applications (SPA),
-              HTML, DOM,
-              CSS, Sass (SCSS), LESS, Flexbox, Responsive Design, Reactive Design,
-              RxJS, jQuery, Bootstrap,
-              Spark, PySpark, Databricks,
-              Azure Monitor, Application Insights, Kusto Query Language (KQL),
-              Enterprise Data Warehouse (EDW),
-              Snowflake Cloud Data Platform,
-              Github, Github Workflows, BitBucket, Mercurial SCM,
-              Trunk-based development, Gitflow,
-              Continuous Integration and Continuous Delivery (CI/CD), Continuous Deployment, Shift Left,
-              Task-Parallel Library (TPL), async/await, Polly,
-              Test-Driven Development (TDD), Behavior-Driven Development (BDD), End-to-End Testing (E2E),
-              Selenium WebDriver, Specflow, Gherkin,
-              NUnit, XUnit, MS Test, Jasmine, Karma, Mocks, Spies,
-              Dependency Injection, Composition over Inheritance, Command-Query Separation,
-              OWASP, Penetration Testing, Snyk, Whitesource, Open Source Scanning (OSS),
-              OAuth 2.0, OpenID Connect (OIDC),
-              HITRUST,
-              Java, Spring, JSP, Hibernate, Maven
-              NoSQL,
-              Feature Toggles,
-              Software as a Service (SaaS), Platform as a Service (PaaS),
-              .NET CLI, System.CommandLine, Fody, Stylecop, Roslyn Analyzers, .editorconfig,
-              Promises, AJAX,
-              Data structures and algorithms,
-              Creating Domain-Specific Languages (DSL) and Parsers, Sprache,
-              Expression Tree manipulation, SQL Parsing and Rewriting,
-              Swing Dancing,
-              ETL, ELT,
-              C, C++,
-              Unicycling
-            </li>
-            <li>
+              Kanban, Agile Scrum, Kafka, Confluent Cloud, Confluent Schema Registry, Avro, ASP.NET Web API, 
+              ASP.NET MVC, LINQPad, Azure, Azure Functions, Durable Functions, Durable Orchestrations, 
+              Message Bus, Message Queues, Azure Data Lake Storage (ADLS), Azure Entra ID, SQL Server, T-SQL, 
+              Object-Relational Mappers (ORM), Entity Framework, LINQ, NodeJS, npm, REST, Swagger, 
+              Single-page Web Applications (SPA), HTML, DOM, CSS, Sass (SCSS), LESS, Flexbox, Responsive Design, 
+              Reactive Design, RxJS, jQuery, Bootstrap, Spark, PySpark, Databricks, Azure Monitor, 
+              Application Insights, Kusto Query Language (KQL), Enterprise Data Warehouse (EDW), 
+              Snowflake Cloud Data Platform, Github, Github Workflows, BitBucket, Mercurial SCM, 
+              Trunk-based development, Gitflow, Continuous Integration and Continuous Delivery (CI/CD), 
+              Continuous Deployment, Shift Left, Task-Parallel Library (TPL), async/await, Polly, 
+              Test-Driven Development (TDD), Behavior-Driven Development (BDD), End-to-End Testing (E2E), 
+              Selenium WebDriver, Specflow, Gherkin, NUnit, XUnit, MS Test, Jasmine, Karma, Mocks, Spies, 
+              Dependency Injection, Composition over Inheritance, Command-Query Separation, OWASP, 
+              Penetration Testing, Snyk, Whitesource, Open Source Scanning (OSS), OAuth 2.0, 
+              OpenID Connect (OIDC), HITRUST, Java, Spring, JSP, Hibernate, Maven, NoSQL, Feature Toggles, 
+              Software as a Service (SaaS), Platform as a Service (PaaS), .NET CLI, System.CommandLine, 
+              Fody, Stylecop, Roslyn Analyzers, .editorconfig, Promises, AJAX, Data structures and algorithms, 
+              Creating Domain-Specific Languages (DSL) and Parsers, Sprache, Expression Tree manipulation, 
+              SQL Parsing and Rewriting, Swing Dancing, ETL, ELT, C, C++, Unicycling
+            </div>
+            <div class="skill-category bg-white rounded-lg p-4 shadow-sm border border-gray-200">
               <strong>Dabbles in:</strong>
-              AWS (CDK, Lambda, Fargate, S3, API Gateway),
-              Flink,
-              GraphQL,
-              React,
-              Python,
-              Docker,
-              ElasticSearch/OpenSearch,
-              Firebase,
-              Linux,
-              Cryptocurrencies
-            </li>
-            <li>
+              AWS (CDK, Lambda, Fargate, S3, API Gateway), Flink, GraphQL, React, Python, Docker, 
+              ElasticSearch/OpenSearch, Firebase, Linux, Cryptocurrencies
+            </div>
+            <div class="skill-category bg-white rounded-lg p-4 shadow-sm border border-gray-200">
               <strong>Would be happy to learn:</strong>
-              Large Language Models (LLM),
-              Go (golang),
-              Rust,
-              Kubernetes,
-              DynamoDB, MongoDB,
-              Dart, Flutter,
-              MongoDB,
-              Hadoop,
-              PostgreSQL, MySQL,
-              Graph databases,
-              F#,
-              and anything else the job demands
-            </li>
-          </ul>
+              Large Language Models (LLM), Go (golang), Rust, Kubernetes, DynamoDB, MongoDB, Dart, Flutter, 
+              MongoDB, Hadoop, PostgreSQL, MySQL, Graph databases, F#, and anything else the job demands
+            </div>
+          </div>
         </div>
-        <div class="detail-switcher no-print">
-          <p *ngIf="mode !== 'detailed'">Want more details? Try the <button hc-button buttonStyle="link-inline"
-              (click)="setMode('detailed')">detailed view</button></p>
-        </div>
-        <div class="online-callout print-only-block">
-          <p>For more details, see the online version of this résumé at
-            <a target="_blank" rel="noopener noreferrer"
-              href="https://j2jensen.github.io/resume">j2jensen.github.io/resume</a>
-          </p>
-        </div>
-        <div id="experience">
-          <h2>Experience</h2>
-          <div class="experience">
-            <div class="company">
-              <div class="time-ranges">
-                <div class="time-range">
-                  <h3>SeekWell</h3>
-                  <span>2022 to Present</span>
-                </div>
+
+        <!-- Experience Section -->
+        <div class="experience mb-8">
+          <h2 class="section-title text-xl font-semibold text-gray-800 mb-4 border-b-2 border-gray-200 pb-2">Experience</h2>
+          
+          <!-- SeekWell -->
+          <div class="company">
+            <div class="time-ranges">
+              <div class="time-range">
+                <h3 class="company-name text-lg font-semibold text-gray-800">SeekWell</h3>
+                <span class="company-dates text-sm text-gray-600">2022 to Present</span>
               </div>
-              <div class="positions">
-                <div class="position">
-                  <div class="time-ranges">
-                    <div class="time-range">
-                      <h4 class="title">Solutions Architect</h4>
-                      <span>December 2022 to Present</span>
-                    </div>
+            </div>
+            <div class="positions">
+              <div class="position">
+                <div class="time-ranges">
+                  <div class="time-range">
+                    <h4 class="title text-base font-medium text-gray-700 mb-1">Solutions Architect</h4>
+                    <span class="text-sm text-gray-500 mb-2">December 2022 to Present</span>
                   </div>
-                  <div class="details">
-                    <p>Worked closely with the Enterprise Architect to establish the enterprise architecture, and
-                      promote its adoption in 1-800 Contacts and other SeekWell subsidiaries.</p>
-                    <h4>
-                      Accomplishments:
-                    </h4>
-                    <ul>
-                      <li>Drafted the company-wide Cloud Strategy</li>
-                      <li>Established an Architecture Review Board consisting of technical leaders across multiple lines
-                        of business and horizontal teams</li>
-                      <li>Established and drove adoption of a company-wide Architecture Review Process, Technology
-                        Approval Process, and Technology Radar</li>
-                      <li>Consulted with teams across the company to aid in the adoption of modern technologies and
-                        best-practices critical to value-driven business initiatives</li>
-                      <li>Aided the founding and organization of horizontal platform teams</li>
-                      <li>Investigated and fixed long-standing defects impacting performance in the 1-800 Contacts web
-                        and mobile applications</li>
-                      <li>Received 12 "Acclaim"s during the first year of employment</li>
-                      <li>2024 Values In Action Lensy award for Technology</li>
-                    </ul>
-                    <p class="position-technologies">
-                      <strong>Technologies:</strong>
-                      AWS (Lambda, Fargate, CDK), Kafka, Apache Flink, Databricks, C#/.NET, Typescript, Java
-                    </p>
-                  </div>
+                </div>
+                <div class="details">
+                  <p class="position-description text-gray-700 mb-3">
+                    Worked closely with the Enterprise Architect to establish the enterprise architecture, and
+                    promote its adoption in 1-800 Contacts and other SeekWell subsidiaries.
+                  </p>
+                  <h4 class="font-semibold text-gray-800 mb-2">Accomplishments:</h4>
+                  <ul class="position-accomplishments list-disc list-inside space-y-1 text-gray-700 mb-3">
+                    <li>Drafted the company-wide Cloud Strategy</li>
+                    <li>Established an Architecture Review Board consisting of technical leaders across multiple lines
+                      of business and horizontal teams</li>
+                    <li>Established and drove adoption of a company-wide Architecture Review Process, Technology
+                      Approval Process, and Technology Radar</li>
+                    <li>Consulted with teams across the company to aid in the adoption of modern technologies and
+                      best-practices critical to value-driven business initiatives</li>
+                    <li>Aided the founding and organization of horizontal platform teams</li>
+                    <li>Investigated and fixed long-standing defects impacting performance in the 1-800 Contacts web
+                      and mobile applications</li>
+                    <li>Received 12 "Acclaim"s during the first year of employment</li>
+                    <li>2024 Values In Action Lensy award for Technology</li>
+                  </ul>
+                  <p class="position-technologies text-sm text-gray-600 bg-gray-50 rounded px-3 py-2">
+                    <strong>Technologies:</strong> AWS (Lambda, Fargate, CDK), Kafka, Apache Flink, Databricks, C#/.NET, Typescript, Java
+                  </p>
                 </div>
               </div>
             </div>
+          </div>
 
-            <div class="company">
-              <div class="time-ranges">
-                <div class="time-range">
-                  <h3>Health Catalyst</h3>
-                  <span>2016 to 2022</span>
+          <!-- Health Catalyst -->
+          <div class="company">
+            <div class="time-ranges">
+              <div class="time-range">
+                <h3 class="company-name text-lg font-semibold text-gray-800">Health Catalyst</h3>
+                <span class="company-dates text-sm text-gray-600">2016 to 2022</span>
+              </div>
+            </div>
+            <div class="positions">
+              <div class="position">
+                <div class="time-ranges">
+                  <div class="time-range">
+                    <h4 class="title text-base font-medium text-gray-700 mb-1">Sr. Director, Software Engineering</h4>
+                    <span class="text-sm text-gray-500 mb-2">July 2021 to December 2022</span>
+                  </div>
+                </div>
+                <div class="details">
+                  <p class="position-description text-gray-700 mb-3">
+                    Director of engineering efforts related to Healthcare-Specific Data products
+                  </p>
+                  <p class="position-description text-gray-700 mb-3">
+                    Responsibilities include hiring engineering managers, driving adoption of best-practices,
+                    analyzing options and making decisions around cloud architecture.
+                  </p>
+                  <p class="position-technologies text-sm text-gray-600 bg-gray-50 rounded px-3 py-2">
+                    <strong>Technologies:</strong> FHIR, Apache Spark/Databricks, Angular, .NET 6, Entity Framework, Azure DevOps, Azure Functions,
+                    Azure Durable Orchestrations, Azure Durable Entities, Azure Data Lake Storage (ADLS),
+                    Snowflake Data Warehouse, .NET CLI, Python
+                  </p>
                 </div>
               </div>
-              <div class="positions">
-                <div class="position">
-                  <div class="time-ranges">
-                    <div class="time-range">
-                      <h4 class="title">Sr. Director, Software Engineering</h4>
-                      <span>July 2021 to December 2022</span>
-                    </div>
+
+              <div class="position">
+                <div class="time-ranges">
+                  <div class="time-range">
+                    <h4 class="title text-base font-medium text-gray-700 mb-1">Director, Software Engineering</h4>
+                    <span class="text-sm text-gray-500 mb-2">July 2019 to July 2021</span>
                   </div>
-                  <div class="details">
-                    <p>Director of engineering efforts related to Healthcare-Specific Data products</p>
-                    <p>
-                      Responsibilities include hiring engineering managers, driving adoption of best-practices,
-                      analyzing options and making decisions around cloud architecture.
-                    </p>
-                    <p class="position-technologies">
-                      <strong>Technologies:</strong>
-                      FHIR, Apache Spark/Databricks, Angular, .NET 6, Entity Framework, Azure DevOps, Azure Functions,
-                      Azure Durable Orchestrations, Azure Durable Entities, Azure Data Lake Storage (ADLS),
-                      Snowflake Data Warehouse, .NET CLI, Python
-                    </p>
+                  <div class="time-range">
+                    <h4 class="title text-base font-medium text-gray-700 mb-1">Software Engineering Manager</h4>
+                    <span class="text-sm text-gray-500 mb-2">February 2018 to June 2019</span>
+                  </div>
+                  <div class="time-range">
+                    <h4 class="title text-base font-medium text-gray-700 mb-1">Senior Software Engineer</h4>
+                    <span class="text-sm text-gray-500 mb-2">March 2016 to February 2018</span>
                   </div>
                 </div>
-                <div class="position">
-                  <div class="time-ranges">
-                    <div class="time-range">
-                      <h4 class="title">Director, Software Engineering</h4>
-                      <span>July 2019 to July 2021</span>
-                    </div>
-                    <div class="time-range">
-                      <h4 class="title">Software Engineering Manager</h4>
-                      <span>February 2018 to June 2019</span>
-                    </div>
-                    <div class="time-range">
-                      <h4 class="title">Senior Software Engineer</h4>
-                      <span>March 2016 to February 2018</span>
-                    </div>
-                  </div>
-                  <div class="details">
-                    <p>
-                      Built a
-                      <a target="_blank" rel="noopener noreferrer"
-                        href="https://products.healthcatalyst.com/table-of-contents/products/pop-analyzer/?alttemplate=PDFHCProductPage2">
-                        web application
-                      </a> allowing users to define complex criteria with a simple interface, explore the data
-                      associated with items matching those criteria, and publish the results into the ETL metadata, for
-                      consumption from the Enterprise Data Warehouse.
-                    </p>
-                    <p>
-                      The application can be configured to map to nearly any kind of data represented in a relational
-                      data warehouse (SQL Server or Snowflake),
-                      and includes crucial integrations to support other Health Catalyst applications.
-                    </p>
-                    <h4>Responsibilities</h4>
-                    <ul>
-                      <li>Formed a team and led the creation of one of the company's most successful and highly-rated
-                        applications</li>
-                      <li><em>Member</em>, Cybersecurity and Compliance Steering Committee</li>
-                      <li><em>Business Unit Representative</em>, Technology Architecture Council</li>
-                      <li><em>Member</em>, Open Space Committee</li>
-                      <li><em>Subject-Matter Expert</em>, ASO Team Code Review Competency Framework</li>
-                    </ul>
-                    <p class="position-technologies">
-                      <strong>Technologies:</strong>
-                      .NET Framework, .NET 5, Angular, ASP.NET Web API, Typescript, JavaScript/ECMAScript,
-                      Angular, T-SQL, Entity Framework, git, Azure DevOps,
-                      Visual Studio, Visual Studio Code
-                    </p>
-                  </div>
+                <div class="details">
+                  <p class="position-description text-gray-700 mb-3">
+                    Built a
+                    <a target="_blank" rel="noopener noreferrer" href="https://products.healthcatalyst.com/table-of-contents/products/pop-analyzer/?alttemplate=PDFHCProductPage2"
+                       class="text-blue-600 hover:text-blue-800">web application</a> allowing users to define complex criteria with a simple interface, explore the data
+                    associated with items matching those criteria, and publish the results into the ETL metadata, for
+                    consumption from the Enterprise Data Warehouse.
+                  </p>
+                  <p class="position-description text-gray-700 mb-3">
+                    The application can be configured to map to nearly any kind of data represented in a relational
+                    data warehouse (SQL Server or Snowflake), and includes crucial integrations to support other Health Catalyst applications.
+                  </p>
+                  
+                  <h4 class="font-semibold text-gray-800 mb-2">Responsibilities</h4>
+                  <ul class="position-accomplishments list-disc list-inside space-y-1 text-gray-700 mb-3">
+                    <li>Formed a team and led the creation of one of the company's most successful and highly-rated applications</li>
+                    <li><em>Member</em>, Cybersecurity and Compliance Steering Committee</li>
+                    <li><em>Business Unit Representative</em>, Technology Architecture Council</li>
+                    <li><em>Member</em>, Open Space Committee</li>
+                    <li><em>Subject-Matter Expert</em>, ASO Team Code Review Competency Framework</li>
+                  </ul>
+                  
+                  <p class="position-technologies text-sm text-gray-600 bg-gray-50 rounded px-3 py-2">
+                    <strong>Technologies:</strong> .NET Framework, .NET 5, Angular, ASP.NET Web API, Typescript, JavaScript/ECMAScript,
+                    Angular, T-SQL, Entity Framework, git, Azure DevOps, Visual Studio, Visual Studio Code
+                  </p>
                 </div>
               </div>
             </div>
+          </div>
 
-            <div class="company">
-              <div class="time-ranges">
-                <div class="time-range">
-                  <h3>Aviacode</h3>
-                  <span>2015 to 2016</span>
-                </div>
+          <!-- Aviacode -->
+          <div class="company">
+            <div class="time-ranges">
+              <div class="time-range">
+                <h3 class="company-name text-lg font-semibold text-gray-800">Aviacode</h3>
+                <span class="company-dates text-sm text-gray-600">2015 to 2016</span>
               </div>
-              <div class="positions">
-                <div class="position">
-                  <div class="time-ranges">
-                    <div class="time-range">
-                      <h4 class="title">Senior Software Developer</h4>
-                      <span>February 2015 to February 2016</span>
-                    </div>
+            </div>
+            <div class="positions">
+              <div class="position">
+                <div class="time-ranges">
+                  <div class="time-range">
+                    <h4 class="title text-base font-medium text-gray-700 mb-1">Senior Software Developer</h4>
+                    <span class="text-sm text-gray-500 mb-2">February 2015 to February 2016</span>
                   </div>
-                  <div class="details">
-                    <p>
-                      Multi-tenant web application facilitating medical billing and coding
-                    </p>
-                    <h4>Responsibilities</h4>
-                    <ul>
-                      <li>Design, coding, and code reviews</li>
-                      <li>Finding and fixing defects and performance problems</li>
-                      <li>Designed a system to reduce deployment down-time by performing continuous data migrations in a
-                        document-oriented database while the system was running</li>
-                      <li>HIPAA training and compliance</li>
-                    </ul>
-                    <p class="position-technologies">
-                      <strong>Technologies:</strong>
-                      .NET Framework, AngularJS (Angular 1), Chromium Embedded Framework, ASP.NET Web API, Typescript,
-                      JavaScript, RavenDB, git, TeamCity, Visual Studio, Selenium WebDriver
-                    </p>
-                  </div>
+                </div>
+                <div class="details">
+                  <p class="position-description text-gray-700 mb-3">
+                    Multi-tenant web application facilitating medical billing and coding
+                  </p>
+                  <h4 class="font-semibold text-gray-800 mb-2">Responsibilities</h4>
+                  <ul class="position-accomplishments list-disc list-inside space-y-1 text-gray-700 mb-3">
+                    <li>Design, coding, and code reviews</li>
+                    <li>Finding and fixing defects and performance problems</li>
+                    <li>Designed a system to reduce deployment down-time by performing continuous data migrations in a
+                      document-oriented database while the system was running</li>
+                    <li>HIPAA training and compliance</li>
+                  </ul>
+                  <p class="position-technologies text-sm text-gray-600 bg-gray-50 rounded px-3 py-2">
+                    <strong>Technologies:</strong> .NET Framework, AngularJS (Angular 1), Chromium Embedded Framework, ASP.NET Web API, Typescript,
+                    JavaScript, RavenDB, git, TeamCity, Visual Studio, Selenium WebDriver
+                  </p>
                 </div>
               </div>
             </div>
+          </div>
 
-            <div class="company">
-              <div class="time-ranges">
-                <div class="time-range">
-                  <h3>Truenorthlogic</h3>
-                  <span>2007 to 2015</span>
-                </div>
+          <!-- Truenorthlogic -->
+          <div class="company">
+            <div class="time-ranges">
+              <div class="time-range">
+                <h3 class="company-name text-lg font-semibold text-gray-800">Truenorthlogic</h3>
+                <span class="company-dates text-sm text-gray-600">2007 to 2015</span>
               </div>
-              <div class="positions">
-                <div class="position">
-                  <div class="time-ranges">
-                    <div class="time-range">
-                      <h4 class="title">Software Architect</h4>
-                      <span>October 2012 to February 2015</span>
-                    </div>
-                    <div class="time-range">
-                      <h4 class="title">Software Engineer</h4>
-                      <span>October 2007 to October 2012</span>
-                    </div>
+            </div>
+            <div class="positions">
+              <div class="position">
+                <div class="time-ranges">
+                  <div class="time-range">
+                    <h4 class="title text-base font-medium text-gray-700 mb-1">Software Architect</h4>
+                    <span class="text-sm text-gray-500 mb-2">October 2012 to February 2015</span>
                   </div>
-                  <div class="details">
-                    <p>
-                      Multi-module web application supporting professional development for teachers in American public
-                      schools
-                    </p>
-                    <h4>Responsibilities</h4>
-                    <ul>
-                      <li>Agile Daily Scrum Leader</li>
-                      <li>After contributing to the companies legacy product (Java) for a couple of years,
-                        I spearheaded the company's first foray into .NET technologies.
-                        As the .NET team grew, I became the de-facto team lead.
-                      </li>
-                      <li>Fostered the adoption of best practices by instruction and by example:
-                        unit testing, code reviews, distributed source control,
-                        fail-fast coding styles, SOLID principles (including dependency injection),
-                        unobtrusive JavaScript, and more.
-                      </li>
-                      <li>Proposed, designed, and implemented several frameworks to improve product scalability:
-                        event-driven AJAX architecture, web portal with demographically-targeted content, configuration
-                        system, email- and web-based notification systems, rules engine, and macro parser/evaluator</li>
-                      <li>Participated in architecture and design decisions</li>
-                    </ul>
-                    <p class="position-technologies">
-                      <strong>Technologies:</strong>
-                      Java, Servlets, JSP, Eclipse, Spring, Hibernate, AJAX,
-                      .NET Framework, ASP.NET MVC, JavaScript, Mercurial SCM (hg), BitBucket, Visual Studio,
-                      Selenium WebDriver
-                    </p>
+                  <div class="time-range">
+                    <h4 class="title text-base font-medium text-gray-700 mb-1">Software Engineer</h4>
+                    <span class="text-sm text-gray-500 mb-2">October 2007 to October 2012</span>
                   </div>
+                </div>
+                <div class="details">
+                  <p class="position-description text-gray-700 mb-3">
+                    Multi-module web application supporting professional development for teachers in American public schools
+                  </p>
+                  
+                  <h4 class="font-semibold text-gray-800 mb-2">Responsibilities</h4>
+                  <ul class="position-accomplishments list-disc list-inside space-y-1 text-gray-700 mb-3">
+                    <li>Agile Daily Scrum Leader</li>
+                    <li>After contributing to the companies legacy product (Java) for a couple of years,
+                      I spearheaded the company's first foray into .NET technologies.
+                      As the .NET team grew, I became the de-facto team lead.</li>
+                    <li>Fostered the adoption of best practices by instruction and by example:
+                      unit testing, code reviews, distributed source control,
+                      fail-fast coding styles, SOLID principles (including dependency injection),
+                      unobtrusive JavaScript, and more.</li>
+                    <li>Proposed, designed, and implemented several frameworks to improve product scalability:
+                      event-driven AJAX architecture, web portal with demographically-targeted content, configuration
+                      system, email- and web-based notification systems, rules engine, and macro parser/evaluator</li>
+                    <li>Participated in architecture and design decisions</li>
+                  </ul>
+                  
+                  <p class="position-technologies text-sm text-gray-600 bg-gray-50 rounded px-3 py-2">
+                    <strong>Technologies:</strong> Java, Servlets, JSP, Eclipse, Spring, Hibernate, AJAX,
+                    .NET Framework, ASP.NET MVC, JavaScript, Mercurial SCM (hg), BitBucket, Visual Studio,
+                    Selenium WebDriver
+                  </p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div id="education">
-          <h2>Education</h2>
+
+        <!-- Education Section -->
+        <div class="mb-8">
+          <h2 class="section-title text-xl font-semibold text-gray-800 mb-4 border-b-2 border-gray-200 pb-2">Education</h2>
           <div class="educations">
             <div class="education">
               <div class="logo">
-                <img src="assets/BlockU_redweb.png" />
+                <img src="assets/BlockU_redweb.png" alt="University of Utah Logo" class="w-full h-full object-contain" />
               </div>
               <div>
-                <h3>The University of Utah</h3>
-                <h4>Bachelor of Science: Computer Science</h4>
+                <h3 class="text-lg font-semibold text-gray-800">The University of Utah</h3>
+                <h4 class="text-gray-600">Bachelor of Science: Computer Science</h4>
               </div>
             </div>
           </div>
         </div>
-        <ng-container *ngIf="mode === 'detailed'">
-          <div id="training">
-            <h2>Training and Conferences</h2>
-            <ul>
+
+        <!-- Training Section (Detailed Mode Only) -->
+        <div *ngIf="mode === 'detailed'" class="mb-8">
+          <h2 class="section-title text-xl font-semibold text-gray-800 mb-4 border-b-2 border-gray-200 pb-2">Training and Conferences</h2>
+          <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-200">
+            <ul class="space-y-2 text-gray-700">
               <li>Continually: Various local conferences, including Silicon Slopes and Healthcare Analytics Summit</li>
               <li>2023: QCon</li>
               <li>2022: FHIR Dev Days</li>
               <li>2021: Snowflake Training</li>
               <li>2020: Crucial Conversations Workshop</li>
-              <li>2018: Dev Intersection +
-                <span
-                  title="&quot;Hands-On, Deep Learning using Keras, TensorFlow and CNTK with Dr. James McCaffrey&quot;">
-                  Azure AI Deep Learning Workshop
-                </span>
-              </li>
+              <li>2018: Dev Intersection + Azure AI Deep Learning Workshop</li>
               <li>2017: Human Connections Workshop</li>
-              <li title="Subject: How to Fail, at Programming and Life">2016: Utah Code Camp and Big Mountain Data:
-                Speaker</li>
-              <li title="This was the first Angular conference ever to take place">2014: ng-conf (Angular Conference)
-              </li>
+              <li>2016: Utah Code Camp and Big Mountain Data: Speaker</li>
+              <li>2014: ng-conf (Angular Conference)</li>
               <li>2012: iDesign's Architect's Master Class, taught by Juval Lowy</li>
             </ul>
           </div>
-        </ng-container>
+        </div>
       </div>
-    </div>
-    <div class="detail-switcher no-print">
-      <p *ngIf="mode !== 'detailed'">Want more details? Try the <button hc-button buttonStyle="link-inline"
-          (click)="setMode('detailed')">detailed view</button></p>
     </div>
   </div>
 </div>
