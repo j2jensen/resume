@@ -1,3 +1,8 @@
+// Import Tailwind utilities for use in this component
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
 .top-ribbon {
   background-color: gray;
   display: flex;
@@ -71,7 +76,7 @@ h2 {
   }
 }
 
-// There's some text we want to leave these here to match keyword filters
+// There's some text we want to leave here to match keyword filters
 // in a PDF resume, but we don't want to have appear visually.
 @mixin print-hidden-text {
   color: white;
@@ -82,90 +87,43 @@ h2 {
   print-color-adjust: exact;
 }
 
-
+// One-page mode - hide detailed content for printing
 .mode-one-page,
 .printable .mode-one-page {
-  .sections .skill-details {
+  .skill-details {
     li:nth-child(n + 2) {
       @include print-hidden-text();
     }
   }
 
-  .experience .company {
-    padding: 0 10px;
-
-    .positions {
-      gap: 0;
-
-      .position {
-        flex-flow: column;
-        gap: 0;
-
-        .time-ranges {
-          gap: 0 20px;
-
-          .time-range {
-            padding: 5px 10px;
-          }
-        }
-
-        .details {
-          display: flex;
-          margin: 0;
-
-          * {
-            @include print-hidden-text();
-            display: flex;
-            margin: 0;
-          }
-        }
+  .experience-item {
+    .position-item {
+      .position-description,
+      .position-accomplishments,
+      .position-technologies {
+        @include print-hidden-text();
       }
     }
   }
 }
 
+// Detailed mode - show vertical company headers
 .mode-detailed {
-  .experience .company {
-    >.time-ranges {
-      flex: 0 0 50px;
-
-      .time-range {
+  .experience-item {
+    .company-header {
+      .company-dates {
         writing-mode: vertical-rl;
         transform: rotate(-180deg);
         text-align: center;
       }
     }
-
-    .positions {
-      flex: 1 1 auto;
-      flex-flow: column;
-    }
-
-    .position {
-      text-align: left;
-
-      >.time-ranges {
-        flex: 1 1 150px;
-        justify-content: flex-start;
-        align-content: baseline;
-      }
-
-      >.details {
-        flex: 10 1 300px;
-      }
-    }
   }
-
 }
 
 .experience {
   margin-top: 10px;
 
   .company {
-    display: flex;
-    flex-flow: row;
-    gap: 22px;
-
     border-left: 1px solid lightgrey;
     border-radius: 14px;
     border-right: none;
@@ -173,11 +131,6 @@ h2 {
     padding: 10px;
 
     >.time-ranges {
-      flex: 0 0 150px;
-
-      display: flex;
-      flex-flow: row;
-      align-items: center;
 
       >.time-range {
         margin: 5px;
@@ -185,11 +138,6 @@ h2 {
     }
 
     .positions {
-      flex: 3 0;
-
-      display: flex;
-      flex-flow: row wrap;
-      gap: 22px;
 
       .title {
         line-height: 1.25;
@@ -199,24 +147,16 @@ h2 {
     }
 
     .position {
-      flex: 1 1 auto;
-
-      display: flex;
-      flex-flow: row wrap;
-      gap: 22px;
-      justify-content: center;
-
       text-align: center;
+      margin-bottom: 22px;
 
       >.time-ranges {
-        flex: 0 1 auto;
-
-        display: flex;
-        gap: 22px;
-        flex-flow: row wrap;
-        justify-content: center;
+        margin-bottom: 10px;
 
         >.time-range {
+          display: inline-block;
+          margin-right: 22px;
+
           >span {
             line-height: 1.3;
           }
@@ -224,8 +164,6 @@ h2 {
       }
 
       >.details {
-        flex: 3;
-
         p {
           line-height: 1.2;
           margin-bottom: 0.8em;
@@ -347,127 +285,112 @@ h2 {
   }
 }
 
-@media only screen and (max-width: 600px) {
-
-  /* The vertical company headers force things to get kind of squishy
-   * when the screen is really narrow (like on mobile phones).
-   */
-  .experience .company,
-  .mode-detailed .experience .company {
-    @include suppress-vertical-company-layout;
-  }
-}
-
-@media only screen and (max-width: 800px) {
-
-  .sections>div>ul {
-    column-count: 1;
-  }
-}
-
+// Print-specific mixin
 @mixin printable {
-  .print-only-block {
-    display: block;
-  }
-
-  .print-only-flex {
-    display: flex;
+  .print-only {
+    display: block !important;
   }
 
   .no-print {
     display: none !important;
   }
 
-  .contact .contact-method.print-only {
-    display: flex;
-  }
-
-  h2 {
-    font-size: 14pt;
-  }
-
-  h3 {
-    font-size: 12pt;
-  }
-
-  .experience .company .positions h4.title {
-    font-size: 11pt;
-  }
-
   .top-ribbon {
     display: none;
   }
 
-  .body {
-    margin-bottom: 0;
+  .mode-switcher {
+    display: none;
   }
 
-  .body.mode-detailed .experience {
-
-    margin-top: -25px;
-
-    /* The fancy vertical text looks cool in web mode, but when printing it doesn't
-      * have its height calculated correctly, and other sections creep into the bottom
-      * of the experiences section.
-      * I'll have to make the company headers show up in a more boring way to make
-      * printing look nice.
-      */
-    .company {
-      @include suppress-vertical-company-layout;
-
-      padding: 5px;
-
-      .details h3,
-      .details p {
-        font-size: 10pt;
-
-        &.position-technologies {
-          @include print-hidden-text();
-        }
-      }
-    }
-
-
+  // Adjust font sizes for print
+  .section-title {
+    font-size: 14pt;
   }
 
-  .sections>div>ul {
-    >li {
-      padding: 3px;
-      font-size: 10pt;
-      line-height: 1.2;
-    }
+  .company-name {
+    font-size: 12pt;
+  }
 
-    &.skill-details {
+  .position-title {
+    font-size: 11pt;
+  }
 
-      >li {
-        &:nth-child(n+2) {
-          font-size: 7.5pt;
-        }
+  .skill-summary ul li,
+  .position-description,
+  .position-accomplishments li {
+    font-size: 10pt;
+    line-height: 1.2;
+  }
 
-        // Leave these here to match keyword filters, but don't print them.
-        &:nth-child(n+3) {
-          @include print-hidden-text();
-        }
-      }
+  // Hide shadows and adjust borders for print
+  .experience-item,
+  .skill-category,
+  .education-item {
+    box-shadow: none !important;
+    border-color: #d1d5db !important;
+  }
+
+  // Remove padding/margins for print
+  .resume-container {
+    margin: 0 !important;
+    padding: 0 !important;
+    max-width: none !important;
+  }
+
+  // Handle detailed mode printing
+  .mode-detailed .experience-item {
+    .company-header .company-dates {
+      writing-mode: initial;
+      transform: none;
     }
   }
 
+  // Make skill details smaller in print
+  .skill-details .skill-category {
+    &:nth-child(n+2) {
+      font-size: 7.5pt;
+    }
+    
+    // Leave these here to match keyword filters, but don't print them
+    &:nth-child(n+3) {
+      @include print-hidden-text();
+    }
+  }
 }
 
-.print-only-block,
-.print-only-flex {
+// Hide print-only elements by default
+.print-only {
   display: none;
 }
 
-.flex {
-  display: flex;
-}
-
-// This just makes it easier for me to debug print mode by adding a query param.
+// Apply print styles when printable class is present or when printing
 .printable {
   @include printable();
 }
 
 @media print {
   @include printable();
+}
+
+// Mobile responsive adjustments
+@media only screen and (max-width: 600px) {
+  .experience-item {
+    .company-header {
+      flex-direction: column;
+      text-align: center;
+      gap: 10px;
+      
+      .company-dates {
+        writing-mode: initial;
+        transform: none;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .skill-summary ul {
+    column-count: 1;
+  }
 }
